@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@source "./**/*.{ts,tsx}";
+@source "../**/*.{ts,tsx}";
+
+@theme {
+  --color-cream: #f5f2ea;
+  --color-ink: #1f1f1f;
+  --color-dark: #20242f;
+  --color-blue: #5289eb;
+  --color-blue-deep: #216df4;
+
+  --font-sans: var(--geist), sans-serif;
+  --font-display: var(--inter), sans-serif;
+}
+
+body {
+  background-color: #f5f2ea;
+  color: #1f1f1f;
+  font-family: var(--geist), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
