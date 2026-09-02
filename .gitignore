@@ -35,4 +35,5 @@ next-env.d.ts
 
 # unused loose design source files (not referenced by the site — see public/ for the assets actually used)
 /*.png
+/*.svg
 /assets/
