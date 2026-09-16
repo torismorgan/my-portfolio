@@ -51,8 +51,8 @@ export default function Home() {
                 aria-hidden="true"
                 className="absolute rounded-full"
                 style={{
-                  top: "0",
-                  left: "0.06em",
+                  top: "0.03em",
+                  left: "0.03em",
                   width: "0.6em",
                   height: "0.6em",
                   backgroundColor: "#e04040",
