@@ -31,17 +31,17 @@ export default function Home() {
             {/* R — red circle (front) + yellow triangle (behind, bottom-left) */}
             <span
               className="relative flex-shrink-0 inline-flex"
-              style={{ width: "0.67em", height: "0.7em" }}
+              style={{ width: "0.67em", height: "0.7em", top: "-0.06em" }}
             >
               {/* Yellow triangle */}
               <span
                 aria-hidden="true"
                 className="absolute"
                 style={{
-                  width: "0.75em",
-                  height: "0.55em",
-                  bottom: "0",
-                  left: "0.03em",
+                  width: "0.62em",
+                  height: "0.46em",
+                  bottom: "0.06em",
+                  left: "0.06em",
                   clipPath: "polygon(0% 0%, 0% 100%, 100% 100%)",
                   backgroundColor: "#f5c518",
                 }}
@@ -49,8 +49,14 @@ export default function Home() {
               {/* Red circle */}
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full"
-                style={{ backgroundColor: "#e04040" }}
+                className="absolute rounded-full"
+                style={{
+                  top: "0.06em",
+                  left: "0.06em",
+                  width: "0.55em",
+                  height: "0.55em",
+                  backgroundColor: "#e04040",
+                }}
               />
             </span>
 
