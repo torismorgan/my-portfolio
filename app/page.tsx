@@ -85,7 +85,7 @@ export default function Home() {
         </div>
 
         {/* ── Bio ── */}
-        <p className="font-sans font-medium text-[clamp(13px,3.6vw,20px)] leading-[1.7] md:leading-[40px] max-w-[963px] text-ink mb-[40px] uppercase">
+        <p className="font-sans font-medium text-[clamp(11px,3vw,18px)] leading-[1.7] md:leading-[36px] max-w-[963px] text-ink mb-[40px] uppercase">
           {`Hello there, my name is Orisakite Victoria. I'm a UI/UX designer, graphic artist,\nand front-end developer who loves creating bold and interactive digital experiences.`}
         </p>
 
