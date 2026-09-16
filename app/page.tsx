@@ -29,8 +29,7 @@ export default function Home() {
           </div>
 
           <h1
-            className="flex flex-wrap items-center font-display font-bold leading-none text-ink select-none"
-            style={{ fontSize: "clamp(34px, 15.3vw, 220px)" }}
+            className="flex flex-wrap items-center font-display font-bold leading-none text-ink select-none text-[clamp(44px,28vw,140px)] md:text-[clamp(60px,15.3vw,220px)]"
           >
             <span>P</span>
             <span>O</span>
@@ -49,7 +48,7 @@ export default function Home() {
                   height: "0.68em",
                   bottom: "-0.14em",
                   left: "0.03em",
-                  clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+                  clipPath: "polygon(0% 0%, 0% 100%, 100% 100%)",
                   backgroundColor: "#f5c518",
                 }}
               />
