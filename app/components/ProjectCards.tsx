@@ -93,7 +93,7 @@ export default function ProjectCards() {
 
   return (
     <div
-      className="grid grid-cols-3 gap-x-2 gap-y-3 items-start h-auto md:flex md:items-stretch md:gap-0 md:h-[380px]"
+      className="grid grid-cols-3 gap-x-2 gap-y-3 items-start h-auto md:flex md:items-stretch md:gap-0 md:h-[320px]"
       role="group"
       aria-label="Projects"
     >
@@ -157,21 +157,10 @@ export default function ProjectCards() {
                 borderRadius: project.tabRight ? "24px 0 24px 24px" : "0 24px 24px 24px",
               }}
             >
-              {/* Visual — the same icon used everywhere, just larger/framed on mobile */}
-              <div
-                className="md:hidden w-full rounded-[16px] flex items-center justify-center shrink-0"
-                style={{
-                  aspectRatio: "16 / 10",
-                  backgroundColor: project.white ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)",
-                }}
-              >
-                <StarIcon white={project.white} className="w-[clamp(56px,18vw,88px)] h-[clamp(56px,18vw,88px)]" />
-              </div>
-
-              {/* Title + category + description — centered vertically on desktop, and centered horizontally when expanded on desktop */}
-              <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0 md:text-center">
+              {/* Title + category + description — number sits above (in the tab), this block centers in the middle, the icon anchors the bottom */}
+              <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0 text-center">
                 <p
-                  className="font-display font-semibold mb-0 md:mb-3"
+                  className="font-display font-medium mb-0 md:mb-3"
                   style={{
                     fontSize: "clamp(24px, 2.8vw, 42px)",
                     lineHeight: 1.1,
@@ -207,7 +196,7 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
-                  className="inline-flex items-center gap-1.5 font-display font-semibold text-[15px] min-h-[44px] w-fit md:mx-auto md:mt-4"
+                  className="inline-flex items-center gap-1.5 font-display font-medium text-[14px] md:text-[15px] min-h-[44px] w-fit mx-auto mt-2 md:mt-4"
                   style={{
                     opacity: isActive ? 1 : 0,
                     transition: `opacity ${fadeSpeed} ease`,
@@ -220,9 +209,9 @@ export default function ProjectCards() {
                 </Link>
               </div>
 
-              {/* Shape — always visible on desktop/tablet (hidden on mobile, replaced by the framed visual above) */}
-              <div className="hidden md:block shrink-0">
-                <StarIcon white={project.white} className="w-[52px] h-[52px]" />
+              {/* Symbol — anchors the bottom of the card at every breakpoint */}
+              <div className="shrink-0 flex justify-center md:block">
+                <StarIcon white={project.white} className="w-[36px] h-[36px] md:w-[52px] md:h-[52px]" />
               </div>
             </div>
           </div>
