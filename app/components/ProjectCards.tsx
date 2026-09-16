@@ -168,8 +168,8 @@ export default function ProjectCards() {
                 <StarIcon white={project.white} className="w-[clamp(56px,18vw,88px)] h-[clamp(56px,18vw,88px)]" />
               </div>
 
-              {/* Title + category + description — centered vertically on desktop */}
-              <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0">
+              {/* Title + category + description — centered vertically on desktop, and centered horizontally when expanded on desktop */}
+              <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0 md:text-center">
                 <p
                   className="font-display font-semibold mb-0 md:mb-3"
                   style={{
@@ -207,7 +207,7 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
-                  className="md:hidden inline-flex items-center gap-1.5 font-display font-semibold text-[15px] min-h-[44px] w-fit"
+                  className="inline-flex items-center gap-1.5 font-display font-semibold text-[15px] min-h-[44px] w-fit md:mx-auto md:mt-4"
                   style={{
                     opacity: isActive ? 1 : 0,
                     transition: `opacity ${fadeSpeed} ease`,
