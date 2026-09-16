@@ -28,20 +28,20 @@ export default function Home() {
             <span>P</span>
             <span>O</span>
 
-            {/* R — red circle (front) + yellow triangle (behind, bottom-left) */}
+            {/* R — red circle (front, top-aligned like the letter tops) + yellow triangle (behind, filling down to the baseline) */}
             <span
-              className="relative flex-shrink-0 inline-flex"
-              style={{ width: "0.6em", height: "0.62em" }}
+              className="relative flex-shrink-0 inline-flex self-start"
+              style={{ width: "0.72em", height: "0.8em" }}
             >
               {/* Yellow triangle */}
               <span
                 aria-hidden="true"
                 className="absolute"
                 style={{
-                  width: "0.68em",
-                  height: "0.5em",
+                  width: "0.6em",
+                  height: "0.42em",
                   bottom: "0",
-                  left: "0.02em",
+                  left: "0.06em",
                   clipPath: "polygon(0% 0%, 0% 100%, 100% 100%)",
                   backgroundColor: "#f5c518",
                 }}
@@ -49,8 +49,14 @@ export default function Home() {
               {/* Red circle */}
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full"
-                style={{ backgroundColor: "#e04040" }}
+                className="absolute rounded-full"
+                style={{
+                  top: "0",
+                  left: "0.06em",
+                  width: "0.6em",
+                  height: "0.6em",
+                  backgroundColor: "#e04040",
+                }}
               />
             </span>
 
