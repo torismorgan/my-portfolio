@@ -27,14 +27,16 @@ export default function Works() {
           </span>
         </div>
 
-        {/* Description — left-aligned, starting from horizontal center on desktop; full width on mobile */}
-        <div className="mb-[48px] md:mb-[80px] w-full md:ml-[50%] md:max-w-[560px] flex flex-col gap-[16px]">
-          <p className="font-sans font-medium text-[16px] md:text-[18px] leading-[26px] md:leading-[28px] text-ink">
-            These Are A Selection Of The Design And Product Case Studies I&apos;ve Worked On.
-          </p>
-          <p className="font-sans font-medium text-[16px] md:text-[18px] leading-[26px] md:leading-[28px] text-ink">
-            Each Project Shows My Process, The Problems I Set Out To Solve, And The Thinking Behind Every Decision.
-          </p>
+        {/* Description — centered on mobile; right half of the row on desktop (never overflows, unlike a fixed margin-left) */}
+        <div className="mb-[48px] md:mb-[80px] flex md:justify-end">
+          <div className="w-full md:w-1/2 md:max-w-[560px] flex flex-col items-center md:items-stretch gap-[16px] text-center md:text-left">
+            <p className="font-sans font-medium text-[16px] md:text-[18px] leading-[26px] md:leading-[28px] text-ink">
+              These Are A Selection Of The Design And Product Case Studies I&apos;ve Worked On.
+            </p>
+            <p className="font-sans font-medium text-[16px] md:text-[18px] leading-[26px] md:leading-[28px] text-ink">
+              Each Project Shows My Process, The Problems I Set Out To Solve, And The Thinking Behind Every Decision.
+            </p>
+          </div>
         </div>
 
         <ProjectCards />
