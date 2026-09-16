@@ -31,17 +31,17 @@ export default function Home() {
             {/* R — red circle (front) + yellow triangle (behind, bottom-left) */}
             <span
               className="relative flex-shrink-0 inline-flex"
-              style={{ width: "0.67em", height: "0.7em", top: "-0.06em" }}
+              style={{ width: "0.6em", height: "0.62em" }}
             >
               {/* Yellow triangle */}
               <span
                 aria-hidden="true"
                 className="absolute"
                 style={{
-                  width: "0.62em",
-                  height: "0.46em",
-                  bottom: "0.06em",
-                  left: "0.06em",
+                  width: "0.68em",
+                  height: "0.5em",
+                  bottom: "0",
+                  left: "0.02em",
                   clipPath: "polygon(0% 0%, 0% 100%, 100% 100%)",
                   backgroundColor: "#f5c518",
                 }}
@@ -49,14 +49,8 @@ export default function Home() {
               {/* Red circle */}
               <span
                 aria-hidden="true"
-                className="absolute rounded-full"
-                style={{
-                  top: "0.06em",
-                  left: "0.06em",
-                  width: "0.55em",
-                  height: "0.55em",
-                  backgroundColor: "#e04040",
-                }}
+                className="absolute inset-0 rounded-full"
+                style={{ backgroundColor: "#e04040" }}
               />
             </span>
 
@@ -103,12 +97,12 @@ export default function Home() {
         <div className="flex items-center justify-between">
           <Asterisk className="text-[#e04040] text-[48px] leading-none blur-[2px] pointer-events-none select-none" />
 
-          <div className="flex gap-[60px]">
+          <div className="flex gap-[28px] md:gap-[60px]">
             <a
               href="https://www.linkedin.com/in/victoria-orisakite-morgan/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-display font-bold text-[16px] text-black underline decoration-solid underline-offset-2 hover:opacity-70 transition-opacity"
+              className="font-display font-bold text-[12px] md:text-[16px] text-black underline decoration-solid underline-offset-2 hover:opacity-70 transition-opacity"
             >
               LINKEDIN
             </a>
@@ -116,7 +110,7 @@ export default function Home() {
               href="https://github.com/torismorgan"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-display font-bold text-[16px] text-black underline decoration-solid underline-offset-2 hover:opacity-70 transition-opacity"
+              className="font-display font-bold text-[12px] md:text-[16px] text-black underline decoration-solid underline-offset-2 hover:opacity-70 transition-opacity"
             >
               GITHUB
             </a>
