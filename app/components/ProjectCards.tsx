@@ -87,7 +87,8 @@ export default function ProjectCards() {
     window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   const DEFAULT_OVERLAP = 20;
-  const ACTIVE_EXTRA = 10;
+  // Was 10 — bled the active card further over its neighbors on hover, which covered their icon.
+  const ACTIVE_EXTRA = 0;
   const transitionSpeed = prefersReducedMotion ? "0s" : "0.5s";
   const fadeSpeed = prefersReducedMotion ? "0s" : "0.3s";
 
@@ -113,7 +114,7 @@ export default function ProjectCards() {
         return (
           <div
             key={i}
-            className="contents md:flex md:flex-col md:cursor-pointer"
+            className="contents md:flex md:flex-col md:cursor-pointer md:min-w-0"
             style={{
               flexGrow: isActive ? 4 : isInactive ? 0.6 : 1,
               flexShrink: 1,
@@ -146,25 +147,30 @@ export default function ProjectCards() {
               <span className="md:hidden truncate">{project.title}</span>
             </button>
 
-            {/* Card body — the single source of each project's content, repositioned per breakpoint */}
+            {/* Card body — the single source of each project's content, repositioned per breakpoint. Also acts as a hover/click target so the whole card responds, not just the tab. */}
             <div
               className={bodyClassName}
+              onClick={() => setActive(i)}
+              onMouseEnter={() => !isMobile && canHover() && setActive(i)}
+              onMouseLeave={() => !isMobile && canHover() && setActive(null)}
               style={{
                 gridRow: 2,
                 gridColumn: "1 / -1",
                 backgroundColor: project.bg,
                 color: project.textColor,
                 borderRadius: project.tabRight ? "24px 0 24px 24px" : "0 24px 24px 24px",
+                cursor: "pointer",
               }}
             >
               {/* Title + category + description — number sits above (in the tab), this block centers in the middle, the icon anchors the bottom */}
               <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0 text-center">
                 <p
-                  className="font-display font-medium mb-0 md:mb-3"
+                  className="font-display font-medium mb-0 md:mb-3 overflow-hidden"
                   style={{
                     fontSize: "clamp(24px, 2.8vw, 42px)",
                     lineHeight: 1.1,
                     opacity: showTitle ? 1 : 0,
+                    whiteSpace: showTitle ? "normal" : "nowrap",
                     transition: `opacity ${fadeSpeed} ease`,
                     transitionDelay: showTitle ? "0.1s" : "0s",
                   }}
@@ -173,9 +179,10 @@ export default function ProjectCards() {
                 </p>
 
                 <p
-                  className="font-sans font-medium uppercase tracking-wide text-[12px] md:text-[13px] opacity-80"
+                  className="font-sans font-medium uppercase tracking-wide text-[12px] md:text-[13px] opacity-80 overflow-hidden"
                   style={{
                     opacity: isActive ? 0.8 : 0,
+                    whiteSpace: isActive ? "normal" : "nowrap",
                     transition: `opacity ${fadeSpeed} ease`,
                     transitionDelay: isActive ? "0.18s" : "0s",
                   }}
@@ -184,9 +191,10 @@ export default function ProjectCards() {
                 </p>
 
                 <p
-                  className="font-sans font-light text-[15px] md:text-[17px] leading-[22px] md:leading-[25px]"
+                  className="font-sans font-light text-[15px] md:text-[17px] leading-[22px] md:leading-[25px] overflow-hidden"
                   style={{
                     opacity: isActive ? 1 : 0,
+                    whiteSpace: isActive ? "normal" : "nowrap",
                     transition: `opacity ${fadeSpeed} ease`,
                     transitionDelay: isActive ? "0.25s" : "0s",
                   }}
@@ -196,9 +204,10 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
-                  className="inline-flex items-center gap-1.5 font-display font-medium text-[14px] md:text-[15px] min-h-[44px] w-fit mx-auto mt-2 md:mt-4"
+                  className="inline-flex items-center gap-1.5 font-display font-medium text-[14px] md:text-[15px] min-h-[44px] w-fit mx-auto mt-2 md:mt-4 overflow-hidden"
                   style={{
                     opacity: isActive ? 1 : 0,
+                    whiteSpace: isActive ? "normal" : "nowrap",
                     transition: `opacity ${fadeSpeed} ease`,
                     transitionDelay: isActive ? "0.3s" : "0s",
                     pointerEvents: isActive ? "auto" : "none",
@@ -209,8 +218,8 @@ export default function ProjectCards() {
                 </Link>
               </div>
 
-              {/* Symbol — anchors the bottom of the card at every breakpoint */}
-              <div className="shrink-0 flex justify-center md:block">
+              {/* Symbol — anchors the bottom of the card at every breakpoint, mirrored to the same side as the tab */}
+              <div className={`shrink-0 flex justify-center ${project.tabRight ? "md:justify-end" : "md:justify-start"}`}>
                 <StarIcon white={project.white} className="w-[36px] h-[36px] md:w-[52px] md:h-[52px]" />
               </div>
             </div>

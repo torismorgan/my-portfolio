@@ -10,8 +10,8 @@ export default function Works() {
       <Navbar />
 
       <section className="relative px-6 sm:px-8 md:px-[65px] pt-[64px] md:pt-[88px] pb-[64px] max-w-full overflow-x-hidden md:overflow-x-visible">
-        {/* PROJECTS heading + asterisk — centered on mobile, left-aligned on desktop */}
-        <div className="mb-[32px] md:mb-[48px] text-center md:text-left">
+        {/* PROJECTS heading + asterisk — centered at every breakpoint */}
+        <div className="mb-[32px] md:mb-[48px] text-center">
           <h1
             className="font-display font-bold leading-none text-ink inline"
             style={{ fontSize: "clamp(48px, 13vw, 190px)" }}
