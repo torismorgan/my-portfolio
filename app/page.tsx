@@ -22,14 +22,8 @@ export default function Home() {
 
         {/* ── PORTFOLIO typography ── */}
         <div className="relative mb-[72px]">
-          {/* Blue square accents — top right of text block */}
-          <div className="absolute top-0 right-1 flex gap-1 md:top-[22px] md:right-0 md:gap-2">
-            <div className="w-[9px] h-[8px] md:w-[30px] md:h-[28px] bg-blue" />
-            <div className="w-[9px] h-[8px] md:w-[30px] md:h-[28px] bg-blue" />
-          </div>
-
           <h1
-            className="flex flex-wrap items-center font-display font-bold leading-none text-ink select-none text-[clamp(44px,28vw,140px)] md:text-[clamp(60px,15.3vw,220px)]"
+            className="flex flex-wrap items-baseline font-display font-bold leading-none text-ink select-none text-[clamp(44px,28vw,140px)] md:text-[clamp(60px,15.3vw,220px)]"
           >
             <span>P</span>
             <span>O</span>
@@ -45,8 +39,8 @@ export default function Home() {
                 className="absolute"
                 style={{
                   width: "0.75em",
-                  height: "0.68em",
-                  bottom: "-0.14em",
+                  height: "0.55em",
+                  bottom: "0",
                   left: "0.03em",
                   clipPath: "polygon(0% 0%, 0% 100%, 100% 100%)",
                   backgroundColor: "#f5c518",
@@ -93,7 +87,7 @@ export default function Home() {
         <div className="mb-[72px]">
           <Link
             href="/works"
-            className="inline-flex items-center justify-center bg-ink text-cream font-display font-semibold text-[22px] leading-[30px] px-[10px] py-[15px] w-[206px] transition-opacity hover:opacity-80"
+            className="inline-flex items-center justify-center bg-ink text-cream font-display font-semibold text-[15px] md:text-[22px] leading-[20px] md:leading-[30px] px-[8px] md:px-[10px] py-[10px] md:py-[15px] w-[140px] md:w-[206px] transition-opacity hover:opacity-80"
           >
             VISUALS
           </Link>
