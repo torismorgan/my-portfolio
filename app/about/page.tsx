@@ -83,19 +83,19 @@ export default function About() {
       <Navbar />
 
       {/* ── Hero ── */}
-      <section className="px-[65px] pt-[88px] pb-[80px] flex items-center gap-8">
+      <section className="px-6 sm:px-8 md:px-[65px] pt-[56px] md:pt-[88px] pb-[48px] md:pb-[80px] flex flex-col md:flex-row items-center gap-8">
         {/* Left copy */}
-        <div className="flex-1 max-w-[480px]">
-          <p className="font-sans text-[15px] font-bold tracking-wide mb-4 text-ink">
+        <div className="flex-1 max-w-[480px] text-center md:text-left">
+          <p className="font-sans text-[14px] md:text-[15px] font-bold tracking-wide mb-4 text-ink">
             UI/UX Design | Front-End
           </p>
           <h1
-            className="font-display font-bold leading-[1.05] mb-6 text-ink whitespace-nowrap"
-            style={{ fontSize: "clamp(44px, 4.8vw, 76px)" }}
+            className="font-display font-bold leading-[1.05] mb-6 text-ink md:whitespace-nowrap"
+            style={{ fontSize: "clamp(36px, 4.8vw, 76px)" }}
           >
             Product Designer
           </h1>
-          <p className="font-sans font-light text-[17px] leading-[27px] mb-8 text-ink/80">
+          <p className="font-sans font-light text-[16px] md:text-[17px] leading-[26px] md:leading-[27px] mb-8 text-ink/80">
             I&apos;m Oris Morgan, a UI/UX designer and developer creating concept-led digital
             experiences with clean systems, strong typography, and thoughtful interaction. I
             design in Figma and bring ideas to life with HTML/CSS/JavaScript.
@@ -108,20 +108,20 @@ export default function About() {
           </a>
         </div>
 
-        {/* Right — photo, flush to right padding edge */}
-        <div className="relative shrink-0 w-[520px] h-[580px] mr-[-65px]">
-          <Image src="/image-me.png" alt="Oris Morgan" fill className="object-contain object-right" />
+        {/* Right — photo, flush to right padding edge on desktop */}
+        <div className="relative w-full max-w-[320px] h-[360px] md:w-[520px] md:h-[580px] md:shrink-0 md:max-w-none md:mr-[-65px]">
+          <Image src="/image-me.png" alt="Oris Morgan" fill className="object-contain md:object-right" />
         </div>
       </section>
 
       {/* ── Tools ── */}
-      <section className="px-[65px] pb-[80px]">
-        <div className="border border-ink/20 bg-white flex items-center justify-around py-10 px-12 rounded-[12px]">
-          <div className="w-[72px] h-[72px] rounded-[10px] bg-[#FF7C00] flex items-center justify-center">
-            <span className="text-white font-bold text-[22px] font-sans tracking-tight">Ai</span>
+      <section className="px-6 sm:px-8 md:px-[65px] pb-[48px] md:pb-[80px]">
+        <div className="border border-ink/20 bg-white flex flex-wrap items-center justify-center gap-4 md:justify-around py-8 px-6 md:py-10 md:px-12 rounded-[12px]">
+          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#FF7C00] flex items-center justify-center">
+            <span className="text-white font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ai</span>
           </div>
-          <div className="w-[72px] h-[72px] rounded-[10px] bg-black flex items-center justify-center">
-            <svg width="26" height="38" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Figma">
+          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-black flex items-center justify-center">
+            <svg width="20" height="29" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Figma" className="md:w-[26px] md:h-[38px]">
               <path d="M100 150C100 122.386 122.386 100 150 100C177.614 100 200 122.386 200 150C200 177.614 177.614 200 150 200C122.386 200 100 177.614 100 150Z" fill="#1ABCFE"/>
               <path d="M0 250C0 222.386 22.386 200 50 200H100V250C100 277.614 77.614 300 50 300C22.386 300 0 277.614 0 250Z" fill="#0ACF83"/>
               <path d="M100 0V100H150C177.614 100 200 77.614 200 50C200 22.386 177.614 0 150 0H100Z" fill="#FF7262"/>
@@ -129,18 +129,18 @@ export default function About() {
               <path d="M0 150C0 177.614 22.386 200 50 200H100V100H50C22.386 100 0 122.386 0 150Z" fill="#A259FF"/>
             </svg>
           </div>
-          <div className="w-[72px] h-[72px] rounded-[10px] bg-[#f0f0f0] border border-ink/10 flex items-center justify-center">
-            <span className="font-sans font-semibold text-[13px] text-[#3776AB] italic">python</span>
+          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#f0f0f0] border border-ink/10 flex items-center justify-center">
+            <span className="font-sans font-semibold text-[11px] md:text-[13px] text-[#3776AB] italic">python</span>
           </div>
-          <div className="w-[72px] h-[72px] rounded-[10px] bg-[#001E36] flex items-center justify-center">
-            <span className="text-[#31A8FF] font-bold text-[22px] font-sans tracking-tight">Ps</span>
+          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#001E36] flex items-center justify-center">
+            <span className="text-[#31A8FF] font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ps</span>
           </div>
         </div>
       </section>
 
       {/* ── Skill cards ── */}
-      <section className="px-[65px] pb-[80px]">
-        <div className="grid grid-cols-3 gap-6">
+      <section className="px-6 sm:px-8 md:px-[65px] pb-[48px] md:pb-[80px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {SKILLS.map((s) => (
             <div key={s.title} className="border border-ink/15 rounded-[16px] p-8 flex flex-col gap-5 bg-cream">
               <div className="relative w-[130px] h-[110px]">
@@ -154,15 +154,15 @@ export default function About() {
       </section>
 
       {/* ── About Me heading ── */}
-      <section className="px-[65px] pb-[48px] text-center">
-        <h2 className="font-display font-light text-ink" style={{ fontSize: "clamp(52px, 7vw, 100px)" }}>
+      <section className="px-6 sm:px-8 md:px-[65px] pb-[32px] md:pb-[48px] text-center">
+        <h2 className="font-display font-light text-ink" style={{ fontSize: "clamp(40px, 7vw, 100px)" }}>
           About Me
         </h2>
       </section>
 
       {/* ── Info cards 2×2 ── */}
-      <section className="px-[65px] pb-[80px]">
-        <div className="grid grid-cols-2 gap-6">
+      <section className="px-6 sm:px-8 md:px-[65px] pb-[48px] md:pb-[80px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {INFO_CARDS.map((card) => (
             <div key={card.title} className="border border-ink/15 rounded-[16px] overflow-hidden flex flex-col">
               <div className="flex items-center justify-center py-10 border-b border-ink/15">

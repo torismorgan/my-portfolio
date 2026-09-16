@@ -16,7 +16,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── Hero ── */}
-      <section className="relative px-[65px] pt-[88px] pb-[64px]">
+      <section className="relative px-6 sm:px-8 md:px-[65px] pt-[64px] md:pt-[88px] pb-[64px] max-w-full overflow-x-hidden">
         {/* Blurred asterisk — top right */}
         <Asterisk className="absolute top-[82px] right-[3vw] text-[#e04040] text-[48px] leading-none blur-[2px] pointer-events-none select-none" />
 
@@ -29,8 +29,8 @@ export default function Home() {
           </div>
 
           <h1
-            className="flex items-center font-display font-bold leading-none text-ink select-none"
-            style={{ fontSize: "clamp(60px, 15.3vw, 220px)" }}
+            className="flex flex-wrap items-center font-display font-bold leading-none text-ink select-none"
+            style={{ fontSize: "clamp(34px, 15.3vw, 220px)" }}
           >
             <span>P</span>
             <span>O</span>
@@ -62,6 +62,10 @@ export default function Home() {
             </span>
 
             <span>T</span>
+
+            {/* Forces FOLIO onto its own line on mobile only */}
+            <span aria-hidden="true" className="basis-full h-0 md:hidden" />
+
             <span>F</span>
 
             {/* O — green circle */}
