@@ -23,9 +23,9 @@ export default function Home() {
         {/* ── PORTFOLIO typography ── */}
         <div className="relative mb-[72px]">
           {/* Blue square accents — top right of text block */}
-          <div className="absolute top-[22px] right-0 flex gap-2">
-            <div className="w-[30px] h-[28px] bg-blue" />
-            <div className="w-[30px] h-[28px] bg-blue" />
+          <div className="absolute top-0 right-1 flex gap-1 md:top-[22px] md:right-0 md:gap-2">
+            <div className="w-[9px] h-[8px] md:w-[30px] md:h-[28px] bg-blue" />
+            <div className="w-[9px] h-[8px] md:w-[30px] md:h-[28px] bg-blue" />
           </div>
 
           <h1
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
 
         {/* ── Bio ── */}
-        <p className="font-sans font-medium text-[20px] leading-[40px] max-w-[963px] text-ink mb-[40px] uppercase">
+        <p className="font-sans font-medium text-[clamp(13px,3.6vw,20px)] leading-[1.7] md:leading-[40px] max-w-[963px] text-ink mb-[40px] uppercase">
           {`Hello there, my name is Orisakite Victoria. I'm a UI/UX designer, graphic artist,\nand front-end developer who loves creating bold and interactive digital experiences.`}
         </p>
 
