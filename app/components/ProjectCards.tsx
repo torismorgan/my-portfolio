@@ -43,7 +43,7 @@ const PROJECTS: Project[] = [
     title: "NAÝRYZ RED",
     category: "Type Study",
     description: "An experimental typeface developed into a digital identity.",
-    href: "#",
+    href: "/works/nayryz-red",
     bg: "#72C16B",
     textColor: "#1f1f1f",
     white: false,
