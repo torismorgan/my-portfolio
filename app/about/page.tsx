@@ -27,7 +27,7 @@ const INFO_CARDS = [
     shape: "/red-blob.svg",
     title: "My Story",
     body: (
-      <p className="font-sans text-[14px] leading-[22px] text-center text-ink/80">
+      <p className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-left md:text-center text-ink/80">
         I&apos;m Oris—a UI/UX designer and front-end developer who builds concept-led digital
         experiences that feel clean, intentional, and easy to use. I&apos;m especially drawn to
         typography-led layouts, strong hierarchy, and small interaction details that make a product
@@ -44,7 +44,7 @@ const INFO_CARDS = [
     shape: "/blue-leaf.svg",
     title: "Strengths",
     body: (
-      <ul className="font-sans text-[14px] leading-[22px] text-ink/80 space-y-2 text-left">
+      <ul className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-ink/80 space-y-1.5 md:space-y-2 text-left">
         <li><span className="font-semibold text-ink">UI/UX + Product Thinking:</span> design thinking, wireframing, prototyping, usability testing, user research</li>
         <li><span className="font-semibold text-ink">Programming:</span> Python, C++, Java, JavaScript, HTML/CSS, React, XML</li>
         <li><span className="font-semibold text-ink">CS Foundations:</span> OOP, data structures, algorithms, problem-solving</li>
@@ -57,7 +57,7 @@ const INFO_CARDS = [
     shape: "/yell-shape.svg",
     title: "Key Positions",
     body: (
-      <ul className="font-sans text-[14px] leading-[22px] text-ink/80 space-y-3 text-left">
+      <ul className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-ink/80 space-y-2 md:space-y-3 text-left">
         <li><span className="font-semibold text-ink">President, GDG Student Chapter</span> — created and led Google Developer Group for Campus at the University of Lethbridge.</li>
         <li><span className="font-semibold text-ink">Founder/President, The Hive</span> — built a campus tech + design community focused on real projects, portfolios, and connection.</li>
         <li><span className="font-semibold text-ink">Branding & Marketing Lead, Gesner</span> — content strategy, storytelling, SEO research, and content calendar management.</li>
@@ -69,7 +69,7 @@ const INFO_CARDS = [
     shape: "/green-blob.svg",
     title: "Education",
     body: (
-      <ul className="font-sans text-[14px] leading-[22px] text-ink/80 space-y-4 text-left">
+      <ul className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-ink/80 space-y-3 md:space-y-4 text-left">
         <li><span className="font-semibold text-ink">University of Lethbridge (BSc Computer Science, in progress)</span> — Lethbridge, AB<br />Minor: New Media & Marketing • GPA: 3.47/4.00</li>
         <li><span className="font-semibold text-ink">Federal University of Petroleum Resources (Chemical Engineering)</span> — 3 years completed</li>
       </ul>
@@ -115,12 +115,12 @@ export default function About() {
       </section>
 
       {/* ── Tools ── */}
-      <section className="px-6 sm:px-8 md:px-[65px] pb-[48px] md:pb-[80px]">
-        <div className="border border-ink/20 bg-white flex flex-wrap items-center justify-center gap-4 md:justify-around py-8 px-6 md:py-10 md:px-12 rounded-[12px]">
-          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#FF7C00] flex items-center justify-center">
-            <span className="text-white font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ai</span>
+      <section className="px-6 sm:px-8 md:px-[65px] pb-6 md:pb-[80px]">
+        <div className="border border-ink md:border-ink/20 bg-white flex flex-wrap items-center justify-around gap-4 py-4 px-4 md:py-10 md:px-12 rounded-none md:rounded-[12px]">
+          <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#2b0a0a] md:bg-[#FF7C00] flex items-center justify-center">
+            <span className="text-[#ff9a1f] md:text-white font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ai</span>
           </div>
-          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-black flex items-center justify-center">
+          <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-black flex items-center justify-center">
             <svg width="20" height="29" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Figma" className="md:w-[26px] md:h-[38px]">
               <path d="M100 150C100 122.386 122.386 100 150 100C177.614 100 200 122.386 200 150C200 177.614 177.614 200 150 200C122.386 200 100 177.614 100 150Z" fill="#1ABCFE"/>
               <path d="M0 250C0 222.386 22.386 200 50 200H100V250C100 277.614 77.614 300 50 300C22.386 300 0 277.614 0 250Z" fill="#0ACF83"/>
@@ -129,51 +129,55 @@ export default function About() {
               <path d="M0 150C0 177.614 22.386 200 50 200H100V100H50C22.386 100 0 122.386 0 150Z" fill="#A259FF"/>
             </svg>
           </div>
-          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#f0f0f0] border border-ink/10 flex items-center justify-center">
+          <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#f0f0f0] border border-ink/10 flex items-center justify-center">
             <span className="font-sans font-semibold text-[11px] md:text-[13px] text-[#3776AB] italic">python</span>
           </div>
-          <div className="w-[56px] h-[56px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#001E36] flex items-center justify-center">
+          <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#001E36] flex items-center justify-center">
             <span className="text-[#31A8FF] font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ps</span>
           </div>
         </div>
       </section>
 
       {/* ── Skill cards ── */}
-      <section className="px-6 sm:px-8 md:px-[65px] pb-[48px] md:pb-[80px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="px-6 sm:px-8 md:px-[65px] pb-8 md:pb-[80px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           {SKILLS.map((s) => (
-            <div key={s.title} className="border border-ink/15 rounded-[16px] p-8 flex flex-col gap-5 bg-cream">
-              <div className="relative w-[130px] h-[110px]">
-                <Image src={s.shape} alt="" fill className="object-contain object-left-top" />
+            <div key={s.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] p-4 md:p-8 flex flex-row items-center md:items-stretch md:flex-col gap-4 md:gap-5 bg-cream">
+              <div className="relative shrink-0 w-[60px] h-[60px] md:w-[130px] md:h-[110px]">
+                <Image src={s.shape} alt="" fill className="object-contain object-left md:object-left-top" />
               </div>
-              <h3 className="font-display font-semibold text-[20px] text-ink">{s.title}</h3>
-              <p className="font-sans font-light text-[15px] leading-[23px] text-ink/75">{s.desc}</p>
+              <div className="flex flex-col gap-1 md:gap-5">
+                <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[15px] md:text-[20px] text-ink">{s.title}</h3>
+                <p className="font-sans font-normal md:font-light text-[13px] leading-[19px] md:text-[15px] md:leading-[23px] text-ink/80 md:text-ink/75">{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── About Me heading ── */}
-      <section className="px-6 sm:px-8 md:px-[65px] pb-[32px] md:pb-[48px] text-center">
-        <h2 className="font-display font-light text-ink" style={{ fontSize: "clamp(40px, 7vw, 100px)" }}>
+      <section className="px-6 sm:px-8 md:px-[65px] pb-5 md:pb-[48px] text-center">
+        <h2 className="font-display font-bold md:font-light text-ink" style={{ fontSize: "clamp(40px, 7vw, 100px)" }}>
           About Me
         </h2>
       </section>
 
       {/* ── Info cards 2×2 ── */}
-      <section className="px-6 sm:px-8 md:px-[65px] pb-[48px] md:pb-[80px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="px-6 sm:px-8 md:px-[65px] pb-10 md:pb-[80px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
           {INFO_CARDS.map((card) => (
-            <div key={card.title} className="border border-ink/15 rounded-[16px] overflow-hidden flex flex-col">
-              <div className="flex items-center justify-center py-10 border-b border-ink/15">
-                <div className="relative w-[80px] h-[80px]">
-                  <Image src={card.shape} alt="" fill className="object-contain" />
+            <div key={card.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] overflow-hidden flex flex-col">
+              <div className="flex flex-row items-center border-b border-ink md:border-b-0 md:flex-col md:items-stretch">
+                <div className="flex items-center justify-start md:justify-center pl-5 pr-4 py-3 md:px-0 md:py-10 md:border-b md:border-ink/15 w-[84px] shrink-0 md:w-auto">
+                  <div className="relative w-[44px] h-[36px] md:w-[80px] md:h-[80px]">
+                    <Image src={card.shape} alt="" fill className="object-contain object-left md:object-center" />
+                  </div>
+                </div>
+                <div className="py-3 pr-4 md:py-4 md:px-8 text-left md:text-center md:border-b md:border-ink/15 md:flex-none flex-1">
+                  <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[14px] md:text-[20px] text-ink">{card.title}</h3>
                 </div>
               </div>
-              <div className="border-b border-ink/15 py-4 px-8 text-center">
-                <h3 className="font-display font-semibold text-[20px] text-ink">{card.title}</h3>
-              </div>
-              <div className="p-8 flex-1">{card.body}</div>
+              <div className="p-4 md:p-8 flex-1">{card.body}</div>
             </div>
           ))}
         </div>
