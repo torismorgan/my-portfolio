@@ -96,7 +96,7 @@ export default function ProjectCards() {
 
   return (
     <div
-      className="grid grid-cols-3 gap-x-2 gap-y-3 items-start h-auto md:flex md:items-stretch md:gap-0 md:h-[320px]"
+      className="grid grid-cols-3 gap-x-2 gap-y-3 items-start h-auto md:flex md:items-stretch md:gap-0 md:h-[280px] md:max-w-[1080px] md:mx-auto"
       role="group"
       aria-label="Projects"
     >
@@ -110,8 +110,10 @@ export default function ProjectCards() {
         const defaultZ = PROJECTS.length + 1 - i;
         const zIndex = isActive ? PROJECTS.length + 5 : defaultZ;
         const bodyDisplayClass = isMobile ? (isActive ? "flex" : "hidden") : "flex";
+        // Cards after the first are overlapped 20px by their left neighbour, so their left padding grows by that much to keep the text clear of the edge.
+        const edgePad = i > 0 && !project.tabRight ? "md:pl-10" : "md:pl-5";
         const bodyClassName =
-          bodyDisplayClass + " md:flex flex-col p-6 md:p-8 flex-1 gap-5 md:gap-0 overflow-hidden w-full";
+          bodyDisplayClass + " md:flex flex-col p-6 md:pr-5 md:py-6 " + edgePad + " flex-1 gap-5 md:gap-0 overflow-hidden w-full";
 
         return (
           <div
@@ -136,7 +138,7 @@ export default function ProjectCards() {
               onClick={() => setActive(i)}
               onMouseEnter={() => !isMobile && canHover() && setActive(i)}
               onMouseLeave={() => !isMobile && canHover() && setActive(null)}
-              className={`${project.tabRight ? "md:self-end" : "md:self-start"} flex flex-1 md:flex-none min-w-0 md:min-w-[130px] min-h-[44px] items-center justify-center md:justify-start gap-1 md:gap-1.5 px-1.5 md:px-5 md:pt-3 md:pb-1 rounded-[10px] md:rounded-t-[14px] md:rounded-b-none font-display font-bold leading-none shrink-0 text-left overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
+              className={`${project.tabRight ? "md:self-end" : "md:self-start"} flex flex-1 md:flex-none min-w-0 md:min-w-[130px] min-h-[44px] items-center justify-center ${project.tabRight ? "md:justify-end" : "md:justify-start"} gap-1 md:gap-1.5 px-1.5 md:pr-5 ${edgePad} md:pt-3 md:pb-1 rounded-[10px] md:rounded-t-[14px] md:rounded-b-none font-display font-bold leading-none shrink-0 text-left overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
               style={{
                 gridRow: 1,
                 gridColumn: i + 1,
@@ -165,11 +167,11 @@ export default function ProjectCards() {
               }}
             >
               {/* Title + category + description — number sits above (in the tab), this block centers in the middle, the icon anchors the bottom */}
-              <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0 text-center">
+              <div className={`flex-1 flex flex-col justify-center gap-2 md:gap-0 text-center ${project.tabRight ? "md:text-right" : "md:text-left"}`}>
                 <p
-                  className="font-display font-medium mb-0 md:mb-3 overflow-hidden"
+                  className="font-display font-medium mb-0 md:mb-2 overflow-hidden"
                   style={{
-                    fontSize: "clamp(24px, 2.8vw, 42px)",
+                    fontSize: "clamp(24px, 2.5vw, 36px)",
                     lineHeight: 1.1,
                     opacity: showTitle ? 1 : 0,
                     whiteSpace: showTitle ? "normal" : "nowrap",
@@ -206,7 +208,7 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
-                  className="inline-flex items-center gap-1.5 font-display font-medium text-[14px] md:text-[15px] min-h-[44px] w-fit mx-auto mt-2 md:mt-4 overflow-hidden"
+                  className={`inline-flex items-center gap-1.5 font-display font-medium text-[14px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0" : "md:ml-0"} mt-2 md:mt-2 overflow-hidden`}
                   style={{
                     opacity: isActive ? 1 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
@@ -222,7 +224,7 @@ export default function ProjectCards() {
 
               {/* Symbol — anchors the bottom of the card at every breakpoint, mirrored to the same side as the tab */}
               <div className={`shrink-0 flex justify-center ${project.tabRight ? "md:justify-end" : "md:justify-start"}`}>
-                <StarIcon white={project.white} className="w-[36px] h-[36px] md:w-[52px] md:h-[52px]" />
+                <StarIcon white={project.white} className="w-[36px] h-[36px] md:w-[44px] md:h-[44px]" />
               </div>
             </div>
           </div>
