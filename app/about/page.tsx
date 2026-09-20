@@ -95,7 +95,7 @@ export default function About() {
           >
             Product Designer
           </h1>
-          <p className="font-sans font-light text-[16px] md:text-[17px] leading-[26px] md:leading-[27px] mb-8 text-ink/80">
+          <p className="font-sans font-light text-[13px] md:text-[17px] leading-[21px] md:leading-[27px] mb-8 text-ink/80">
             I&apos;m Oris Morgan, a UI/UX designer and developer creating concept-led digital
             experiences with clean systems, strong typography, and thoughtful interaction. I
             design in Figma and bring ideas to life with HTML/CSS/JavaScript.
@@ -166,9 +166,9 @@ export default function About() {
       <section className="px-6 sm:px-8 md:px-[65px] pb-10 md:pb-[80px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
           {INFO_CARDS.map((card) => (
-            <div key={card.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] overflow-hidden grid grid-cols-[68px_1fr] md:flex md:flex-col">
-              <div className="row-span-2 md:row-span-1 flex items-start justify-start md:items-center md:justify-center pl-4 pt-3 md:px-0 md:pt-10 md:pb-10 md:border-b md:border-ink/15">
-                <div className="relative w-[40px] h-[34px] md:w-[80px] md:h-[80px]">
+            <div key={card.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] overflow-hidden grid grid-cols-[84px_1fr] md:flex md:flex-col">
+              <div className="row-span-2 md:row-span-1 flex items-start justify-start md:items-center md:justify-center pl-4 pt-[18px] md:px-0 md:pt-10 md:pb-10 md:border-b md:border-ink/15">
+                <div className="relative w-[58px] h-[52px] md:w-[80px] md:h-[80px]">
                   <Image src={card.shape} alt="" fill className="object-contain object-left-top md:object-center" />
                 </div>
               </div>
