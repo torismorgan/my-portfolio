@@ -6,6 +6,7 @@ import Link from "next/link";
 type Project = {
   num: string;
   title: string;
+  tabLabel?: string;
   category: string;
   description: string;
   href: string;
@@ -18,9 +19,10 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     num: "1",
-    title: "PASTEL STOP",
-    category: "UI/UX Design · Concept Website",
-    description: "A lifestyle platform designed around community and connection.",
+    title: "THE PASTEL STOP",
+    tabLabel: "PASTEL STOP",
+    category: "Brand Website",
+    description: "A lifestyle and community platform for every version of her.",
     href: "#",
     bg: "#F1DA65",
     textColor: "#1f1f1f",
@@ -29,8 +31,8 @@ const PROJECTS: Project[] = [
   {
     num: "2",
     title: "STYLENOVA",
-    category: "Product Design · App Redesign",
-    description: "A redesign focused on simpler, more intuitive interactions.",
+    category: "Game Redesign",
+    description: "An interactive fashion game redesigned around story and choice.",
     href: "#",
     bg: "#1f1f1f",
     textColor: "#f5f2ea",
@@ -38,8 +40,8 @@ const PROJECTS: Project[] = [
   },
   {
     num: "3",
-    title: "TYPE STUDY",
-    category: "Typography · Visual Identity",
+    title: "NAÝRYZ RED",
+    category: "Type Study",
     description: "An experimental typeface developed into a digital identity.",
     href: "#",
     bg: "#72C16B",
@@ -144,7 +146,7 @@ export default function ProjectCards() {
               }}
             >
               <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <span className="md:hidden truncate">{project.title}</span>
+              <span className="md:hidden truncate">{project.tabLabel ?? project.title}</span>
             </button>
 
             {/* Card body — the single source of each project's content, repositioned per breakpoint. Also acts as a hover/click target so the whole card responds, not just the tab. */}
