@@ -166,18 +166,16 @@ export default function About() {
       <section className="px-6 sm:px-8 md:px-[65px] pb-10 md:pb-[80px]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
           {INFO_CARDS.map((card) => (
-            <div key={card.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] overflow-hidden flex flex-col">
-              <div className="flex flex-row items-center border-b border-ink md:border-b-0 md:flex-col md:items-stretch">
-                <div className="flex items-center justify-start md:justify-center pl-5 pr-4 py-3 md:px-0 md:py-10 md:border-b md:border-ink/15 w-[84px] shrink-0 md:w-auto">
-                  <div className="relative w-[44px] h-[36px] md:w-[80px] md:h-[80px]">
-                    <Image src={card.shape} alt="" fill className="object-contain object-left md:object-center" />
-                  </div>
-                </div>
-                <div className="py-3 pr-4 md:py-4 md:px-8 text-left md:text-center md:border-b md:border-ink/15 md:flex-none flex-1">
-                  <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[14px] md:text-[20px] text-ink">{card.title}</h3>
+            <div key={card.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] overflow-hidden grid grid-cols-[68px_1fr] md:flex md:flex-col">
+              <div className="row-span-2 md:row-span-1 flex items-start justify-start md:items-center md:justify-center pl-4 pt-3 md:px-0 md:pt-10 md:pb-10 md:border-b md:border-ink/15">
+                <div className="relative w-[40px] h-[34px] md:w-[80px] md:h-[80px]">
+                  <Image src={card.shape} alt="" fill className="object-contain object-left-top md:object-center" />
                 </div>
               </div>
-              <div className="p-4 md:p-8 flex-1">{card.body}</div>
+              <div className="border-b border-ink md:border-ink/15 py-3 pr-4 md:py-4 md:px-8 text-left md:text-center">
+                <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[14px] md:text-[20px] text-ink">{card.title}</h3>
+              </div>
+              <div className="py-3 pr-4 md:p-8 flex-1">{card.body}</div>
             </div>
           ))}
         </div>
