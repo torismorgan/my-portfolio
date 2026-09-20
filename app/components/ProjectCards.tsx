@@ -183,7 +183,7 @@ export default function ProjectCards() {
                 </p>
 
                 <p
-                  className="font-sans font-medium uppercase tracking-wide text-[12px] md:text-[13px] opacity-80 overflow-hidden"
+                  className="font-sans font-medium text-[11px] md:text-[13px] opacity-80 overflow-hidden"
                   style={{
                     opacity: isActive ? 0.8 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
@@ -195,7 +195,7 @@ export default function ProjectCards() {
                 </p>
 
                 <p
-                  className="font-sans font-light text-[15px] md:text-[17px] leading-[22px] md:leading-[25px] overflow-hidden"
+                  className="font-sans font-light text-[13px] md:text-[17px] leading-[19px] md:leading-[25px] overflow-hidden"
                   style={{
                     opacity: isActive ? 1 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
@@ -208,7 +208,7 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
-                  className={`inline-flex items-center gap-1.5 font-display font-medium text-[14px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0" : "md:ml-0"} mt-2 md:mt-2 overflow-hidden`}
+                  className={`inline-flex items-center gap-1.5 font-display font-medium text-[13px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0" : "md:ml-0"} mt-2 md:mt-2 overflow-hidden`}
                   style={{
                     opacity: isActive ? 1 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
