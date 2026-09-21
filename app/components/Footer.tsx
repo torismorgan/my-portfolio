@@ -59,16 +59,37 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* Email */}
-        <div className="flex flex-1 items-center justify-center gap-2 border-b md:border-b-0 md:border-r border-dark px-5 py-2 md:px-8 md:py-12 font-sans font-medium text-[13px] md:text-[14px] text-dark leading-[22px] text-center">
-          <span className="hidden md:inline">[ EMAIL ]</span>
-          <span className="hidden md:inline">[ @ ]</span>
-          <a
-            href="mailto:torismorgan@gmail.com"
-            className="inline-flex items-center min-h-[44px] md:min-h-0 hover:underline break-all md:whitespace-nowrap"
-          >
-            [ TORISMORGAN@GMAIL.COM ]
-          </a>
+        {/* Email + social links */}
+        <div className="flex flex-1 flex-col items-center justify-center gap-1 md:gap-3 border-b md:border-b-0 md:border-r border-dark px-5 py-2 md:px-8 md:py-12 font-sans font-medium text-[13px] md:text-[14px] text-dark leading-[22px] text-center">
+          <div className="flex items-center justify-center gap-2">
+            <span className="hidden md:inline">[ EMAIL ]</span>
+            <span className="hidden md:inline">[ @ ]</span>
+            <a
+              href="mailto:torismorgan@gmail.com"
+              className="inline-flex items-center min-h-[44px] md:min-h-0 hover:underline break-all md:whitespace-nowrap"
+            >
+              [ TORISMORGAN@GMAIL.COM ]
+            </a>
+          </div>
+          <div className="flex items-center justify-center gap-2 md:gap-5">
+            <span className="hidden md:inline">[ SOCIAL ]</span>
+            <a
+              href="https://www.linkedin.com/in/victoria-orisakite-morgan/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center min-h-[44px] md:min-h-0 px-3 md:px-0 hover:underline"
+            >
+              LINKEDIN
+            </a>
+            <a
+              href="https://github.com/torismorgan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center min-h-[44px] md:min-h-0 px-3 md:px-0 hover:underline"
+            >
+              GITHUB
+            </a>
+          </div>
         </div>
 
         {/* Copyright */}
