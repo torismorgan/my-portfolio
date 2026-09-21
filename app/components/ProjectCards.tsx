@@ -23,7 +23,7 @@ const PROJECTS: Project[] = [
     tabLabel: "PASTEL STOP",
     category: "Brand Website",
     description: "A lifestyle and community platform for every version of her.",
-    href: "#",
+    href: "/works/the-pastel-stop",
     bg: "#F1DA65",
     textColor: "#1f1f1f",
     white: false,
