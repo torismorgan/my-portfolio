@@ -11,6 +11,15 @@ export const metadata = {
 
 const A = "/work/nayryz-red";
 
+/* Project links, shown as a row under the project details. Add { label, href } entries here (e.g. the live website). */
+const LINKS = [
+  { label: "View live website", href: "https://torismorgan.github.io/Website-Type/" },
+  {
+    label: "View Figma prototype",
+    href: "https://www.figma.com/proto/4g5gk4INzd1gwvodSMwloP/website?node-id=29-127&viewport=-772%2C78%2C0.21&t=onVjbNB3LjXipsiQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=29%3A99&page-id=0%3A1",
+  },
+];
+
 const RED = "#B03A2E";
 const NAVY = "#20242f";
 const PANEL = "#F0ECE4";
@@ -223,6 +232,21 @@ export default function NauryzRedCaseStudy() {
           </div>
         ))}
       </dl>
+
+      <div className="border-b border-ink flex flex-wrap items-center justify-center gap-3 px-6 py-5 md:py-6">
+        {LINKS.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-ink text-cream font-sans font-medium text-[14px] uppercase tracking-[0.08em] px-6 py-3 min-h-[48px] transition-opacity hover:opacity-80"
+          >
+            {l.label}
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
 
       {/* ── 01 Overview + Challenge ── */}
       <section className="border-b border-ink">

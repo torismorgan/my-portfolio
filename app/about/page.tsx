@@ -22,60 +22,18 @@ const SKILLS = [
   },
 ];
 
-const INFO_CARDS = [
-  {
-    shape: "/red-blob.svg",
-    title: "My Story",
-    body: (
-      <p className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-left md:text-center text-ink/80">
-        I&apos;m Oris—a UI/UX designer and front-end developer who builds concept-led digital
-        experiences that feel clean, intentional, and easy to use. I&apos;m especially drawn to
-        typography-led layouts, strong hierarchy, and small interaction details that make a product
-        feel polished rather than busy.
-        <br /><br />
-        My process usually starts with a clear concept and a simple system—then I prototype flows,
-        refine navigation, and build consistent components across screens. When the design is ready,
-        I enjoy translating it into HTML/CSS/JavaScript so the final build keeps the same energy as
-        the prototype.
-      </p>
-    ),
-  },
-  {
-    shape: "/blue-leaf.svg",
-    title: "Strengths",
-    body: (
-      <ul className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-ink/80 space-y-1.5 md:space-y-2 text-left">
-        <li><span className="font-semibold text-ink">UI/UX + Product Thinking:</span> design thinking, wireframing, prototyping, usability testing, user research</li>
-        <li><span className="font-semibold text-ink">Programming:</span> Python, C++, Java, JavaScript, HTML/CSS, React, XML</li>
-        <li><span className="font-semibold text-ink">CS Foundations:</span> OOP, data structures, algorithms, problem-solving</li>
-        <li><span className="font-semibold text-ink">Design Tools:</span> Figma, Adobe Suite (Illustrator, Photoshop, InDesign), Canva, Procreate</li>
-        <li><span className="font-semibold text-ink">Accessibility + Collaboration:</span> accessibility improvements (alt text, HTML/XML), GitHub collaboration</li>
-      </ul>
-    ),
-  },
-  {
-    shape: "/yell-shape.svg",
-    title: "Key Positions",
-    body: (
-      <ul className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-ink/80 space-y-2 md:space-y-3 text-left">
-        <li><span className="font-semibold text-ink">President, GDG Student Chapter</span> — created and led Google Developer Group for Campus at the University of Lethbridge.</li>
-        <li><span className="font-semibold text-ink">Founder/President, The Hive</span> — built a campus tech + design community focused on real projects, portfolios, and connection.</li>
-        <li><span className="font-semibold text-ink">Branding & Marketing Lead, Gesner</span> — content strategy, storytelling, SEO research, and content calendar management.</li>
-        <li><span className="font-semibold text-ink">UI/UX Camp Coordinator, BrainSTEM Alliance (Jun 2022–Aug 2022)</span> — taught Python/C++ fundamentals and UI/UX basics using Figma and Canva</li>
-      </ul>
-    ),
-  },
-  {
-    shape: "/green-blob.svg",
-    title: "Education",
-    body: (
-      <ul className="font-sans text-[12px] leading-[18px] md:text-[14px] md:leading-[22px] text-ink/80 space-y-3 md:space-y-4 text-left">
-        <li><span className="font-semibold text-ink">University of Lethbridge (BSc Computer Science, in progress)</span> — Lethbridge, AB<br />Minor: New Media & Marketing • GPA: 3.47/4.00</li>
-        <li><span className="font-semibold text-ink">Federal University of Petroleum Resources (Chemical Engineering)</span> — 3 years completed</li>
-      </ul>
-    ),
-  },
+const STORY =
+  "I’m Oris, a visual designer who brings ideas to life through branding, UI/UX, editorial, and interactive design. I’m drawn to bold concepts, strong typography, and thoughtful details that make digital experiences feel expressive and easy to use.";
+
+const STRENGTHS = [
+  { label: "Visual Direction", desc: "Branding, typography, and editorial design" },
+  { label: "UI/UX", desc: "Wireframing, prototyping, and interaction design" },
+  { label: "Front-End", desc: "HTML, CSS, and JavaScript" },
+  { label: "Accessibility", desc: "Inclusive and usable digital experiences" },
 ];
+
+// The résumé PDF lives in /public, so it is served at this path.
+const RESUME_HREF = "/oris-morgan-resume.pdf";
 
 export default function About() {
   return (
@@ -101,7 +59,9 @@ export default function About() {
             design in Figma and bring ideas to life with HTML/CSS/JavaScript.
           </p>
           <a
-            href="#"
+            href={RESUME_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-ink text-cream font-sans font-medium text-[14px] px-7 py-3 hover:opacity-85 transition-opacity"
           >
             View Resume
@@ -162,22 +122,53 @@ export default function About() {
         </h2>
       </section>
 
-      {/* ── Info cards 2×2 ── */}
-      <section className="px-6 sm:px-8 md:px-[65px] pb-10 md:pb-[80px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
-          {INFO_CARDS.map((card) => (
-            <div key={card.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] overflow-hidden grid grid-cols-[84px_1fr] md:flex md:flex-col">
-              <div className="row-span-2 md:row-span-1 flex items-start justify-start md:items-center md:justify-center pl-4 pt-[18px] md:px-0 md:pt-10 md:pb-10 md:border-b md:border-ink/15">
-                <div className="relative w-[58px] h-[52px] md:w-[80px] md:h-[80px]">
-                  <Image src={card.shape} alt="" fill className="object-contain object-left-top md:object-center" />
-                </div>
-              </div>
-              <div className="border-b border-ink md:border-ink/15 py-3 pr-4 md:py-4 md:px-8 text-left md:text-center">
-                <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[14px] md:text-[20px] text-ink">{card.title}</h3>
-              </div>
-              <div className="py-3 pr-4 md:p-8 flex-1">{card.body}</div>
+      {/* ── My Story + What I Bring ── */}
+      <section className="px-6 sm:px-8 md:px-[65px] pb-14 md:pb-[96px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 max-w-[1180px] mx-auto">
+          {/* My Story */}
+          <div className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] bg-cream p-6 md:p-10 flex flex-col">
+            <div className="relative w-[64px] h-[56px] md:w-[72px] md:h-[64px] mb-4 md:mb-5" aria-hidden="true">
+              <Image src="/yell-shape.svg" alt="" fill className="object-contain object-left" />
             </div>
-          ))}
+            <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[18px] md:text-[24px] leading-[1.15] text-ink">
+              My Story
+            </h3>
+            <p className="mt-4 font-sans text-[16px] leading-[1.7] md:text-[21px] md:leading-[1.65] text-ink/85 max-w-[540px]">
+              {STORY}
+            </p>
+          </div>
+
+          {/* What I Bring */}
+          <div className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] bg-cream p-6 md:p-10 flex flex-col">
+            <div className="relative w-[64px] h-[56px] md:w-[72px] md:h-[64px] mb-4 md:mb-5" aria-hidden="true">
+              <Image src="/blue-leaf.svg" alt="" fill className="object-contain object-left" />
+            </div>
+            <h3 className="font-display font-bold md:font-semibold uppercase md:normal-case text-[18px] md:text-[24px] leading-[1.15] text-ink">
+              What I Bring
+            </h3>
+            <ul className="mt-4 flex flex-col border-t border-ink/15">
+              {STRENGTHS.map((s) => (
+                <li key={s.label} className="py-3 md:py-3.5 border-b border-ink/15 last:border-b-0 flex flex-col gap-0.5 md:flex-row md:items-baseline md:gap-6">
+                  <span className="font-sans font-semibold text-[13px] uppercase tracking-[0.1em] text-ink md:w-[150px] md:shrink-0">
+                    {s.label}
+                  </span>
+                  <span className="font-sans text-[16px] leading-[1.5] text-ink/80">{s.desc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 md:mt-12 flex justify-center">
+          <a
+            href={RESUME_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-ink text-cream font-sans font-medium text-[14px] uppercase tracking-[0.08em] px-8 py-3.5 min-h-[48px] transition-opacity hover:opacity-80"
+          >
+            View my résumé
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </section>
 
