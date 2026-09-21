@@ -52,3 +52,19 @@ body {
 .ps-title {
   font-family: var(--font-spartan), sans-serif;
 }
+
+/* Style Nova case study: Azonix (free font, mixofx.com) for titles, Poppins for regular text (loaded in that page). */
+@font-face {
+  font-family: "Azonix";
+  src: url("/fonts/azonix.woff2") format("woff2"), url("/fonts/azonix.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+.sn-body,
+.sn-body .font-sans {
+  font-family: var(--font-poppins-sn), sans-serif;
+}
+.sn-title {
+  font-family: "Azonix", var(--font-poppins-sn), sans-serif;
+}

@@ -7,7 +7,7 @@ import Link from "next/link";
 */
 const PROJECTS = [
   { slug: "pastel-stop", name: "The Pastel Stop", href: "/works/the-pastel-stop" },
-  { slug: "stylenova", name: "StyleNova", href: null },
+  { slug: "stylenova", name: "Style Nova", href: "/works/stylenova" },
   { slug: "nauryz", name: "Nauryz Red", href: "/works/nayryz-red" },
 ] as const;
 
@@ -54,7 +54,7 @@ function Cell({
   );
 }
 
-export default function ProjectNav({ current }: { current: Slug }) {
+export default function ProjectNav({ current, back = false }: { current: Slug; back?: boolean }) {
   const i = PROJECTS.findIndex((p) => p.slug === current);
   const prev = PROJECTS[(i + PROJECTS.length - 1) % PROJECTS.length];
   const next = PROJECTS[(i + 1) % PROJECTS.length];
@@ -67,6 +67,14 @@ export default function ProjectNav({ current }: { current: Slug }) {
       <div className="min-w-0">
         <Cell project={next} direction="next" />
       </div>
+      {back && (
+        <Link
+          href="/works"
+          className="col-span-2 border-t border-ink/40 flex items-center justify-center min-h-[56px] font-sans text-[12px] uppercase tracking-[0.14em] text-ink transition-opacity hover:opacity-70"
+        >
+          Back to projects
+        </Link>
+      )}
     </nav>
   );
 }

@@ -33,7 +33,7 @@ const PROJECTS: Project[] = [
     title: "STYLENOVA",
     category: "Game Redesign",
     description: "An interactive fashion game redesigned around story and choice.",
-    href: "#",
+    href: "/works/stylenova",
     bg: "#1f1f1f",
     textColor: "#f5f2ea",
     white: true,
