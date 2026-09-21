@@ -653,7 +653,7 @@ export default function StyleNovaCaseStudy() {
               <Phone src="s-red-competition" alt="Nova and Chanel side by side on the red carpet at the Nova Awards" caption="Nova and Chanel together" />
             </ScreenItem>
             <ScreenItem>
-              <Phone src="s-red-result" alt="Red-carpet competition result: Nova wins 96 to 87 with event fit, impact and styling scores" caption="Competition result" />
+              <Phone src="s-red-result-win" alt="Red-carpet competition result: Nova wins 96 to 87 with event fit, impact and styling scores" caption="Competition result" />
             </ScreenItem>
           </ScreenGrid>
         </div>
