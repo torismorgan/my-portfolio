@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 
 type Project = {
@@ -63,17 +63,21 @@ function StarIcon({ white = false, className }: { white?: boolean; className?: s
   );
 }
 
-/** Tracks a media query on the client only; safe default avoids SSR/client mismatch. */
+/** Tracks a media query. The server snapshot is `false`, so server and first client render always agree. */
 function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
-  useEffect(() => {
-    const mql = window.matchMedia(query);
-    setMatches(mql.matches);
-    const handler = (e: MediaQueryListEvent) => setMatches(e.matches);
-    mql.addEventListener("change", handler);
-    return () => mql.removeEventListener("change", handler);
-  }, [query]);
-  return matches;
+  const subscribe = useCallback(
+    (notify: () => void) => {
+      const mql = window.matchMedia(query);
+      mql.addEventListener("change", notify);
+      return () => mql.removeEventListener("change", notify);
+    },
+    [query],
+  );
+  return useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(query).matches,
+    () => false,
+  );
 }
 
 export default function ProjectCards() {
@@ -208,12 +212,15 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
-                  className={`inline-flex items-center gap-1.5 font-display font-medium text-[13px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0" : "md:ml-0"} mt-2 md:mt-2 overflow-hidden`}
+                  className={`inline-flex items-center gap-1.5 font-display font-medium text-[13px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0 md:origin-right" : "md:ml-0 md:origin-left"} origin-center mt-2 md:mt-2 overflow-hidden hover:font-bold hover:[transform:scale(1.14)] focus-visible:font-bold focus-visible:[transform:scale(1.14)] active:[transform:scale(1.14)]`}
                   style={{
                     opacity: isActive ? 1 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
-                    transition: `opacity ${fadeSpeed} ease`,
-                    transitionDelay: isActive ? "0.3s" : "0s",
+                    // the fade-in waits for the card to open; the hover growth is immediate
+                    transitionProperty: "opacity, transform",
+                    transitionDuration: `${fadeSpeed}, ${prefersReducedMotion ? "0s" : "0.2s"}`,
+                    transitionTimingFunction: "ease",
+                    transitionDelay: isActive ? "0.3s, 0s" : "0s, 0s",
                     pointerEvents: isActive ? "auto" : "none",
                   }}
                   tabIndex={isActive ? 0 : -1}
