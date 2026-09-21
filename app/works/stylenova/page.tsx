@@ -64,7 +64,7 @@ const ACCENTS = [
 ];
 
 const ORIGINALS = [
-  { src: "o-home", w: 1200, h: 581, caption: "Landing screen", alt: "Original Style Nova landing screen: a chrome STYLE and a pink NOVA beside Nova in a silver outfit" },
+  { src: "o-landing", w: 1200, h: 853, caption: "Landing screen", alt: "Original Style Nova landing screen: a pink STYLE NOVA banner, Nova in a glass dome, and a “hey there, style star!” card with a Pick her outfit button" },
   { src: "o-desk-7", w: 1200, h: 853, caption: "Outfit selection", alt: "Original desktop game, Event One, Casual Work Day: Nova in a glass dome with three outfits to choose from" },
   { src: "o-desk-6", w: 1200, h: 853, caption: "Result", alt: "Original desktop game: a 'perfect pick, bestie!' result screen with a Next event button" },
 ];
@@ -276,7 +276,7 @@ export default function StyleNovaCaseStudy() {
         />
         <p className={`${eyebrow} mt-12 md:mt-16 mb-4`}>Style Nova — Original Desktop Experience</p>
         {/* the original screens stay horizontal; on phones they scroll sideways inside the gallery */}
-        <div className="-mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0">
+        <div className="-mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-px-6 pb-3 md:pb-0">
           <div className="flex items-start gap-4 md:gap-6">
             {ORIGINALS.map((o) => (
               <figure
@@ -419,7 +419,7 @@ export default function StyleNovaCaseStudy() {
               { src: "s-red-win", w: 402, h: 874, alt: "The refined gold gown on Nova in the red-carpet screen", phone: true },
             ],
           ].map((row, ri) => (
-            <div key={ri} className="-mx-6 px-6 md:mx-0 md:px-0 flex flex-row items-center gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0">
+            <div key={ri} className="-mx-6 px-6 md:mx-0 md:px-0 flex flex-row items-center gap-3 md:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-px-6 pb-3 md:pb-0">
               {row.map((im, i) => (
                 <div key={im.src} className="contents">
                   <figure
