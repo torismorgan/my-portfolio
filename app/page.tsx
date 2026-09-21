@@ -86,16 +86,18 @@ export default function Home() {
 
         {/* ── Bio ── */}
         <p className="font-sans font-medium text-[clamp(11px,3vw,18px)] leading-[1.7] md:leading-[36px] max-w-[963px] text-ink mb-[40px] uppercase">
-          {`Hello there, my name is Orisakite Victoria. I'm a UI/UX designer, graphic artist,\nand front-end developer who loves creating bold and interactive digital experiences.`}
+          Hello, I’m Orisakite Victoria—a visual designer who brings ideas to life through branding, UI/UX, editorial,
+          and interactive design. I create bold, cohesive experiences and use front-end development to turn them into
+          functional digital products.
         </p>
 
-        {/* ── VISUALS button ── */}
+        {/* ── Let's chat button ── */}
         <div className="mb-[72px]">
           <Link
-            href="/works"
-            className="inline-flex items-center justify-center bg-ink text-cream font-display font-semibold text-[15px] md:text-[22px] leading-[20px] md:leading-[30px] px-[8px] md:px-[10px] py-[10px] md:py-[15px] w-[140px] md:w-[206px] transition-opacity hover:opacity-80"
+            href="/contact"
+            className="inline-flex items-center justify-center bg-ink text-cream font-display font-semibold text-[15px] md:text-[22px] leading-[20px] md:leading-[30px] px-[8px] md:px-[10px] py-[10px] md:py-[15px] min-h-[44px] md:min-h-0 w-[140px] md:w-[206px] transition-opacity hover:opacity-80"
           >
-            VISUALS
+            LET’S CHAT
           </Link>
         </div>
 
