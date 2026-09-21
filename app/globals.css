@@ -13,10 +13,42 @@
   --font-display: var(--inter), sans-serif;
 }
 
+/* Nauryz Redkeds (Roman Tabachi, Red Keds CA) — free for commercial and personal use.
+   Files live in /public/fonts; the woff2 was generated from the same .ttf. */
+@font-face {
+  font-family: "Nauryz Red";
+  src: url("/fonts/nauryzredkeds.woff2") format("woff2"),
+    url("/fonts/nauryzredkeds.ttf") format("truetype");
+  font-weight: 100 900; /* single Bold master — the range stops the browser faking a heavier weight */
+  font-style: normal;
+  font-display: swap;
+}
+
+.nauryz-type {
+  font-family: "Nauryz Red", sans-serif;
+}
+
+/* The billboard is shown whole: intrinsic ratio, never cropped or given a fixed-height box. */
+.natural-habitat-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 body {
   background-color: #f5f2ea;
   color: #1f1f1f;
   font-family: var(--geist), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* The Pastel Stop case study: titles in League Spartan, small text in Poppins (both loaded in that page). */
+.ps-body,
+.ps-body .font-sans {
+  font-family: var(--font-poppins), sans-serif;
+}
+.ps-title {
+  font-family: var(--font-spartan), sans-serif;
 }
