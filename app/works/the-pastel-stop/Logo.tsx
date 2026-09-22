@@ -28,7 +28,7 @@ const PREVIOUS: { name: string; src: string; w: number; h: number; ink: string; 
 
 export default function Logo() {
   return (
-    <section className={`${pad} py-14 md:py-24 border-b border-ink`} id="logo">
+    <section className={`${pad} py-14 md:py-24 border-b border-ink scroll-mt-[var(--case-study-offset,190px)]`} id="brand">
       <div className="mx-auto w-full max-w-[1080px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <div>

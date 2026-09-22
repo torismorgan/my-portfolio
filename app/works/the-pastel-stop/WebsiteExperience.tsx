@@ -93,7 +93,7 @@ export default function WebsiteExperience() {
   return (
     <>
       {/* ── intro ── */}
-      <section className={block} id="website-experience">
+      <section className={`${block} scroll-mt-[var(--case-study-offset,190px)]`} id="website">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <p className={eyebrow}>Website Experience</p>

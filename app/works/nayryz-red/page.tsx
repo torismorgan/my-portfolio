@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
+import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
 import ExternalArrow from "@/app/components/ExternalArrow";
 
 export const metadata = {
@@ -168,6 +169,7 @@ export default function NauryzRedCaseStudy() {
   return (
     <main className="bg-cream text-ink flex flex-col">
       <Navbar />
+      <CaseStudyBreadcrumb current="nauryz" />
 
       {/* ── 1. Hero ── */}
       <section className="border-b border-ink">

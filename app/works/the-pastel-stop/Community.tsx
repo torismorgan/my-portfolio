@@ -75,7 +75,7 @@ export default function Community() {
   return (
     <>
       {/* ── 7. Content ecosystem ── */}
-      <section className={block} id="content-ecosystem">
+      <section className={`${block} scroll-mt-[var(--case-study-offset,190px)]`} id="content-ecosystem">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <p className={eyebrow}>Content Ecosystem</p>

@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
+import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
 import ExternalArrow from "@/app/components/ExternalArrow";
 
 export const metadata = {
@@ -157,6 +158,7 @@ export default function StyleNovaCaseStudy() {
   return (
     <main className={`bg-cream text-ink flex flex-col ${poppins.variable}`}>
       <Navbar />
+      <CaseStudyBreadcrumb current="stylenova" />
 
       <div className="sn-body">
 
@@ -745,7 +747,7 @@ export default function StyleNovaCaseStudy() {
       </div>
 
       {/* ── 15 Footer navigation ── */}
-      <ProjectNav current="stylenova" back />
+      <ProjectNav current="stylenova" />
 
       <Footer />
     </main>

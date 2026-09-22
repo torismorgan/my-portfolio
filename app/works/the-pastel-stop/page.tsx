@@ -3,6 +3,8 @@ import { League_Spartan, Poppins } from "next/font/google";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
+import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
+import SectionNav from "@/app/components/SectionNav";
 import Logo from "./Logo";
 import ColourSystem from "./ColourSystem";
 import WebsiteExperience from "./WebsiteExperience";
@@ -33,16 +35,27 @@ const META = [
 const eyebrow = "font-sans text-[12px] uppercase tracking-[0.14em] text-ink/70";
 const bodyText = "font-sans text-[16px] md:text-[17px] leading-[1.7] text-ink/80";
 const pad = "px-6 md:px-9";
+const scrollOffset = "scroll-mt-[var(--case-study-offset,190px)]";
+
+const SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "brand", label: "Brand" },
+  { id: "website", label: "Website" },
+  { id: "content-ecosystem", label: "Community" },
+  { id: "outcome", label: "Outcome" },
+];
 
 export default function ThePastelStopCaseStudy() {
   return (
     <main className={`bg-cream text-ink flex flex-col ${spartan.variable} ${poppins.variable}`}>
       <Navbar />
+      <CaseStudyBreadcrumb current="pastel-stop" />
+      <SectionNav items={SECTIONS} />
 
       <div className="ps-body">
 
       {/* ── 1. Hero + project summary ── */}
-      <section className="border-b border-ink">
+      <section id="overview" className={`border-b border-ink ${scrollOffset}`}>
         <div className={`${pad} pt-12 md:pt-20 pb-10 md:pb-14 text-center`}>
           <p className={eyebrow}>Brand &nbsp;•&nbsp; Web Design &nbsp;•&nbsp; Community</p>
           <h1
@@ -122,7 +135,7 @@ export default function ThePastelStopCaseStudy() {
       <Community />
 
       {/* ── 10. Outcome and ongoing direction ── */}
-      <section className={`${pad} py-14 md:py-24 border-b border-ink`}>
+      <section id="outcome" className={`${pad} py-14 md:py-24 border-b border-ink ${scrollOffset}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <p className={eyebrow}>Outcome</p>

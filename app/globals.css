@@ -44,6 +44,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  /* The sticky main header's current height, kept in sync by Navbar.tsx as it compacts on
+     scroll, so anything sticking below it (the case-study breadcrumb, the section nav) can
+     read this instead of hardcoding a number that would drift out of sync. */
+  --header-h: 74px;
+}
+
+/* Internal-anchor jumps (the case-study section nav) scroll smoothly, unless the visitor
+   has asked the OS/browser to reduce motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* The Pastel Stop case study: titles in League Spartan, small text in Poppins (both loaded in that page). */
 .ps-body,
 .ps-body .font-sans {
