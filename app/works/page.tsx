@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ProjectCards from "@/app/components/ProjectCards";
+import Asterisk from "@/app/components/Asterisk";
 
 export const metadata = { title: "Works — Oris Morgan" };
 
@@ -19,11 +20,11 @@ export default function Works() {
             PROJECTS
           </h1>
           <span
-            className="text-[#e04040] select-none pointer-events-none font-black inline-block align-top"
-            style={{ fontSize: "clamp(36px, 9vw, 130px)", lineHeight: 1, WebkitTextStroke: "3px #e04040", marginLeft: "-0.05em" }}
+            className="text-[#e04040] select-none pointer-events-none inline-block align-top"
+            style={{ fontSize: "clamp(36px, 9vw, 130px)", lineHeight: 1, marginLeft: "-0.05em" }}
             aria-hidden="true"
           >
-            ✳
+            <Asterisk strokeWidth={20} />
           </span>
         </div>
 

@@ -1,14 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-
-function Asterisk({ className }: { className?: string }) {
-  return (
-    <span className={className} aria-hidden="true">
-      ✳
-    </span>
-  );
-}
+import Asterisk from "@/app/components/Asterisk";
 
 export default function Home() {
   return (
