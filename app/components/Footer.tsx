@@ -42,7 +42,7 @@ export default function Footer() {
               href="mailto:torismorgan@gmail.com"
               className="inline-flex items-center min-h-[44px] md:min-h-0 hover:underline break-all md:whitespace-nowrap"
             >
-              TORISMORGAN@GMAIL.COM
+              [ TORISMORGAN@GMAIL.COM ]
             </a>
           </div>
           <div className="flex items-center justify-center gap-2 md:gap-5">
