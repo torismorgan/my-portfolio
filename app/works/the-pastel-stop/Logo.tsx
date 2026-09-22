@@ -32,25 +32,31 @@ export default function Logo() {
       <div className="mx-auto w-full max-w-[1080px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <div>
-          <p className={eyebrow}>Visual Identity</p>
+          <p className={eyebrow}>Brand Identity</p>
           <h2
             className="mt-4 uppercase ps-title font-semibold leading-[1.02] tracking-[-0.03em] text-balance text-[clamp(34px,5.4vw,72px)]"
             style={{ color: NAVY }}
           >
-            Logo system
+            Logo, type and voice
           </h2>
         </div>
-        <p className={bodyText}>
-          The logo is a two-part system: a full wordmark and a secondary symbol. The earlier logo is shown below for reference.
-        </p>
+        <div className="flex flex-col gap-5">
+          <p className={bodyText}>
+            The clean wordmark gives the brand a modern and approachable voice, while the abstract TPS symbol creates
+            a recognizable mark that can be used in smaller digital spaces.
+          </p>
+          <p className={bodyText}>
+            Headlines run in League Spartan; body copy in Poppins — a pairing carried through every page and season.
+          </p>
+        </div>
       </div>
 
       {/* current logo: each part is one picture that moves through its colours */}
       <div className="mt-12 md:mt-16">
         <p className={`${eyebrow} mb-6`}>Current logo</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
-          <WordmarkCycler description="The full thepastelstop. wordmark uses League Spartan to feel clean, modern and approachable, reflecting the modern woman." />
-          <SymbolCycler description="The secondary symbol combines the letters T, P and S into a playful, recognizable mark for smaller applications." />
+          <WordmarkCycler />
+          <SymbolCycler />
         </div>
       </div>
 
@@ -72,7 +78,7 @@ export default function Logo() {
 
       {/* previous logo */}
       <div className="mt-12 md:mt-16">
-        <p className={`${eyebrow} mb-3`}>Previous logo</p>
+        <p className={`${eyebrow} mb-3`}>Previous logo, for reference</p>
         <ul className="grid grid-cols-1 sm:grid-cols-3 border-l border-t border-ink/30">
           {PREVIOUS.map((p) => {
             const url = `url(${A}/${p.src})`;

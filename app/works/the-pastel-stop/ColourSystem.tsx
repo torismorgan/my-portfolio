@@ -118,17 +118,11 @@ export default function ColourSystem() {
         </div>
         <div className="flex flex-col gap-5">
           <p className={bodyText}>
-            The Pastel Stop uses tonal colour palettes that combine soft pastels with deeper, darker shades of the
-            same visual mood. This creates a look that feels cohesive and almost monochromatic without becoming flat or
-            repetitive.
+            The brand combines soft pastels with deeper, darker shades of the same mood — then lets the whole palette
+            shift with each season or campaign, so the Stop always feels current without feeling like a new brand.
           </p>
           <p className={bodyText}>
-            The palette is also seasonal. Colours change to reflect the current atmosphere, content and experiences
-            happening at the Stop, while the typography, layout and brand voice keep everything recognizable.
-          </p>
-          <p className={bodyText}>
-            This allows each season to have its own personality without making The Pastel Stop feel like a different
-            brand every time it changes.
+            Typography, layout, voice and the logo stay fixed across every season; only colour and photography move.
           </p>
         </div>
       </div>

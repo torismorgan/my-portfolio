@@ -25,10 +25,9 @@ const SITE_CREAM = "#FFFFF1";
 
 const META = [
   ["Role", "Founder, Brand Designer, UI/UX Designer + Front-End Developer"],
-  ["Project Type", "Community and Lifestyle Platform"],
-  ["Timeline", "2025–Present"],
-  ["Tools", "Figma, Illustrator, Photoshop, HTML/CSS/JavaScript"],
-  ["Deliverables", "Brand Identity, Responsive Website, Editorial System, Social Content"],
+  ["Tools", "Figma, Photoshop, HTML, CSS and JavaScript"],
+  ["Scope", "Brand strategy, visual identity, website, social media and events"],
+  ["Status", "Ongoing"],
 ];
 
 const eyebrow = "font-sans text-[12px] uppercase tracking-[0.14em] text-ink/70";
@@ -42,7 +41,7 @@ export default function ThePastelStopCaseStudy() {
 
       <div className="ps-body">
 
-      {/* ── 1. Hero ── */}
+      {/* ── 1. Hero + project summary ── */}
       <section className="border-b border-ink">
         <div className={`${pad} pt-12 md:pt-20 pb-10 md:pb-14 text-center`}>
           <p className={eyebrow}>Brand &nbsp;•&nbsp; Web Design &nbsp;•&nbsp; Community</p>
@@ -52,9 +51,10 @@ export default function ThePastelStopCaseStudy() {
           >
             The Pastel Stop
           </h1>
-          <p className={`${bodyText} mt-8 md:mt-10 max-w-[620px] mx-auto`}>
-            A lifestyle and community platform combining editorial storytelling, seasonal design and shared
-            experiences for every version of her.
+          <p className={`${bodyText} mt-8 md:mt-10 max-w-[640px] mx-auto`}>
+            The Pastel Stop is a lifestyle and community platform created for women navigating different versions of
+            themselves. I developed the project from ideation to execution, building its brand identity, digital
+            experience, social presence and community-focused campaigns.
           </p>
         </div>
 
@@ -75,14 +75,12 @@ export default function ThePastelStopCaseStudy() {
       </section>
 
       {/* ── Project information ── */}
-      <dl className="grid grid-cols-2 lg:grid-cols-5 border-b border-ink">
+      <dl className="grid grid-cols-2 lg:grid-cols-4 border-b border-ink">
         {META.map(([k, v], i) => (
           <div
             key={k}
-            /* phones: the long items get a full row, Project Type and Timeline share one */
-            className={`min-w-0 py-5 md:py-6 px-6 border-ink/40 ${i > 0 ? "border-t" : ""} ${i === 2 ? "border-l" : ""} ${
-              i === 1 || i === 2 ? "" : "col-span-2"
-            } lg:col-span-1 lg:border-t-0 ${i > 0 ? "lg:border-l" : ""}`}
+            /* mobile: 2 per row (odd index gets a left border, row 2+ gets a top border) — desktop: one row of 4 */
+            className={`min-w-0 py-5 md:py-6 px-6 border-ink/40 ${i % 2 === 1 ? "border-l" : ""} ${i >= 2 ? "border-t" : ""} lg:border-t-0 ${i > 0 ? "lg:border-l" : ""}`}
           >
             <dt className="font-sans text-[11px] sm:text-[12px] uppercase tracking-[0.12em] sm:tracking-[0.14em] text-ink/70">
               {k}
@@ -92,10 +90,65 @@ export default function ThePastelStopCaseStudy() {
         ))}
       </dl>
 
+      {/* ── 2. The idea ── */}
+      <section className={`${pad} py-14 md:py-24 border-b border-ink`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <p className={eyebrow}>The Idea</p>
+            <h2
+              className="mt-4 uppercase ps-title font-semibold leading-[1.02] tracking-[-0.03em] text-balance text-[clamp(34px,5.4vw,72px)]"
+              style={{ color: NAVY }}
+            >
+              A place to pause
+            </h2>
+          </div>
+          <div className="flex flex-col gap-5">
+            <p className={bodyText}>
+              The Pastel Stop started as a space for women moving through different stages, interests and versions of
+              themselves — somewhere to slow down between who they were and who they’re becoming. It’s built around
+              editorial letters, recommendations, events and community, rather than one fixed idea of who “her” is.
+            </p>
+            <p className={bodyText}>
+              It’s a real and growing community, not just a concept website: people read, submit, show up to events
+              and shape what the Stop becomes next.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <Logo />
       <ColourSystem />
       <WebsiteExperience />
       <Community />
+
+      {/* ── 10. Outcome and ongoing direction ── */}
+      <section className={`${pad} py-14 md:py-24 border-b border-ink`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <p className={eyebrow}>Outcome</p>
+            <h2
+              className="mt-4 uppercase ps-title font-semibold leading-[1.02] tracking-[-0.03em] text-balance text-[clamp(34px,5.4vw,72px)]"
+              style={{ color: NAVY }}
+            >
+              An ongoing world, not a finished one
+            </h2>
+          </div>
+          <p className={bodyText}>
+            The Pastel Stop has grown from a visual concept into a connected brand experience spanning editorial
+            content, social media, community participation and live events. The project is ongoing, with future
+            seasons and features continuing to expand the world without losing its central identity.
+          </p>
+        </div>
+
+        <div className="mt-10 md:mt-12 flex flex-wrap items-center gap-4">
+          <span
+            className="inline-flex items-center gap-2 border border-ink/30 text-ink/50 font-sans font-medium text-[14px] uppercase tracking-[0.08em] px-6 py-3 min-h-[48px] cursor-default"
+            title="The live site is being re-hosted — check back soon"
+          >
+            Visit The Pastel Stop — coming soon
+          </span>
+        </div>
+      </section>
       </div>
 
       <ProjectNav current="pastel-stop" />
