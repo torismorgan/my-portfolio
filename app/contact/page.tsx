@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import ExternalArrow from "@/app/components/ExternalArrow";
 
 export const metadata = { title: "Let’s chat — Oris Morgan" };
 
@@ -71,7 +72,7 @@ export default function Contact() {
             <div>
               <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className={button}>
                 Open LinkedIn
-                <span aria-hidden="true">↗</span>
+                <ExternalArrow />
               </a>
             </div>
           </div>

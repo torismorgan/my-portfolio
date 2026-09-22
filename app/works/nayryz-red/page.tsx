@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
+import ExternalArrow from "@/app/components/ExternalArrow";
 
 export const metadata = {
   title: "Nauryz Red — Oris Morgan",
@@ -243,7 +244,7 @@ export default function NauryzRedCaseStudy() {
             className="inline-flex items-center justify-center gap-2 bg-ink text-cream font-sans font-medium text-[14px] uppercase tracking-[0.08em] px-6 py-3 min-h-[48px] transition-opacity hover:opacity-80"
           >
             {l.label}
-            <span aria-hidden="true">↗</span>
+            <ExternalArrow />
           </a>
         ))}
       </div>
