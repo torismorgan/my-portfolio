@@ -77,8 +77,8 @@ export default function About() {
       {/* ── Tools ── */}
       <section className="px-6 sm:px-8 md:px-[65px] pb-6 md:pb-[80px]">
         <div className="border border-ink md:border-ink/20 bg-white flex flex-wrap items-center justify-around gap-4 py-4 px-4 md:py-10 md:px-12 rounded-none md:rounded-[12px]">
-          <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#2b0a0a] md:bg-[#FF7C00] flex items-center justify-center">
-            <span className="text-[#ff9a1f] md:text-white font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ai</span>
+          <div className="relative w-[48px] h-[48px] md:w-[72px] md:h-[72px]">
+            <Image src="/tools/illustrator.png" alt="Adobe Illustrator" fill className="object-contain" />
           </div>
           <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-black flex items-center justify-center">
             <svg width="20" height="29" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Figma" className="md:w-[26px] md:h-[38px]">
@@ -89,8 +89,8 @@ export default function About() {
               <path d="M0 150C0 177.614 22.386 200 50 200H100V100H50C22.386 100 0 122.386 0 150Z" fill="#A259FF"/>
             </svg>
           </div>
-          <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#f0f0f0] border border-ink/10 flex items-center justify-center">
-            <span className="font-sans font-semibold text-[11px] md:text-[13px] text-[#3776AB] italic">python</span>
+          <div className="relative w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#f0f0f0] border border-ink/10">
+            <Image src="/tools/python-logo.png" alt="Python" fill className="object-contain p-2.5" />
           </div>
           <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-[#001E36] flex items-center justify-center">
             <span className="text-[#31A8FF] font-bold text-[17px] md:text-[22px] font-sans tracking-tight">Ps</span>
