@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ThinAsterisk from "@/app/components/ThinAsterisk";
 
 const NAV_LINKS = [
   { label: "WORKS", href: "/works", hoverBg: "#e8d77e" },
@@ -37,8 +38,9 @@ export default function Navbar() {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="flex h-[74px] w-auto md:w-[374px] shrink-0 items-center border-r border-black px-5 md:px-8 transition-colors hover:bg-ink group"
+          className="flex h-[74px] w-auto md:w-[374px] shrink-0 items-center gap-2 border-r border-black px-5 md:px-8 transition-colors hover:bg-ink group"
         >
+          <ThinAsterisk size={18} className="shrink-0 text-ink group-hover:text-cream transition-colors" />
           <span className="font-sans font-semibold text-[14px] md:text-[15px] text-ink leading-[22px] whitespace-nowrap group-hover:text-cream transition-colors">
             ORIS MORGAN
           </span>

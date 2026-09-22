@@ -1,36 +1,12 @@
 import Link from "next/link";
-
-function ThinAsterisk() {
-  const size = 48;
-  const c = size / 2;
-  const r = c * 0.82;
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" aria-hidden>
-      {[0, 45, 90, 135].map((deg, i) => {
-        const rad = (deg * Math.PI) / 180;
-        return (
-          <line
-            key={i}
-            x1={c - r * Math.cos(rad)}
-            y1={c - r * Math.sin(rad)}
-            x2={c + r * Math.cos(rad)}
-            y2={c + r * Math.sin(rad)}
-            stroke="#20242f"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-        );
-      })}
-    </svg>
-  );
-}
+import ThinAsterisk from "@/app/components/ThinAsterisk";
 
 export default function Footer() {
   return (
     <footer className="border-t border-dark w-full">
       {/* Top — name + star */}
       <div className="flex flex-col items-center gap-6 px-4 py-14 md:py-24">
-        <ThinAsterisk />
+        <ThinAsterisk className="text-dark" />
         <Link
           href="/"
           className="font-sans font-light text-dark text-center hover:opacity-70 transition-opacity"
