@@ -2,6 +2,7 @@
 
 import { useCallback, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Project = {
   num: string;
@@ -81,6 +82,7 @@ function useMediaQuery(query: string) {
 }
 
 export default function ProjectCards() {
+  const router = useRouter();
   const isMobile = useMediaQuery("(max-width: 767px)");
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const [active, setActive] = useState<number | null>(null);
@@ -155,10 +157,10 @@ export default function ProjectCards() {
               <span className="md:hidden truncate">{project.tabLabel ?? project.title}</span>
             </button>
 
-            {/* Card body — the single source of each project's content, repositioned per breakpoint. Also acts as a hover/click target so the whole card responds, not just the tab. */}
+            {/* Card body — the single source of each project's content, repositioned per breakpoint. Also acts as a hover/click target so the whole card responds, not just the tab. On hover-capable devices, once the card is expanded a click anywhere on it opens the case study, same as the "View Case Study" link. */}
             <div
               className={bodyClassName}
-              onClick={() => setActive(i)}
+              onClick={() => (!isMobile && canHover() ? router.push(project.href) : setActive(i))}
               onMouseEnter={() => !isMobile && canHover() && setActive(i)}
               onMouseLeave={() => !isMobile && canHover() && setActive(null)}
               style={{
@@ -212,6 +214,7 @@ export default function ProjectCards() {
 
                 <Link
                   href={project.href}
+                  onClick={(e) => e.stopPropagation()}
                   className={`inline-flex items-center gap-1.5 font-display font-medium text-[13px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0 md:origin-right" : "md:ml-0 md:origin-left"} origin-center mt-2 md:mt-2 overflow-hidden hover:font-bold hover:[transform:scale(1.14)] focus-visible:font-bold focus-visible:[transform:scale(1.14)] active:[transform:scale(1.14)]`}
                   style={{
                     opacity: isActive ? 1 : 0,
