@@ -77,7 +77,7 @@ export default function About() {
       {/* ── Tools ── */}
       <section className="px-6 sm:px-8 md:px-[65px] pb-6 md:pb-[80px]">
         <div className="border border-ink md:border-ink/20 bg-white flex flex-wrap items-center justify-around gap-4 py-4 px-4 md:py-10 md:px-12 rounded-none md:rounded-[12px]">
-          <div className="relative w-[48px] h-[48px] md:w-[72px] md:h-[72px]">
+          <div className="relative w-[60px] h-[60px] md:w-[88px] md:h-[88px]">
             <Image src="/tools/illustrator.png" alt="Adobe Illustrator" fill className="object-contain" />
           </div>
           <div className="w-[48px] h-[48px] md:w-[72px] md:h-[72px] rounded-[10px] bg-black flex items-center justify-center">
