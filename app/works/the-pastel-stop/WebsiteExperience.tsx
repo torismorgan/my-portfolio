@@ -118,7 +118,9 @@ export default function WebsiteExperience() {
             <Head n="01" title="Clear navigation" />
             <p className={`${bodyText} mt-8`}>
               Direct labels, a consistent header and a visible “Join the Stop” action let visitors move between
-              editorial content, community and events without losing their place.
+              editorial content, community and events without losing their place. The header blends into the page
+              background at the top, then becomes a sticky bar on scroll — keeping navigation always within reach,
+              which supports accessibility.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row lg:flex-col gap-6">
