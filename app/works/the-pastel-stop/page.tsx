@@ -4,6 +4,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
 import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
+import ExternalArrow from "@/app/components/ExternalArrow";
 import SectionNav from "@/app/components/SectionNav";
 import Logo from "./Logo";
 import ColourSystem from "./ColourSystem";
@@ -21,6 +22,7 @@ export const metadata = {
 };
 
 const A = "/work/the-pastel-stop";
+const LIVE_URL = "https://thepastelstop.com";
 
 const NAVY = "#20242f";
 const SITE_CREAM = "#FFFFF1";
@@ -154,12 +156,15 @@ export default function ThePastelStopCaseStudy() {
         </div>
 
         <div className="mt-10 md:mt-12 flex flex-wrap items-center gap-4">
-          <span
-            className="inline-flex items-center gap-2 border border-ink/30 text-ink/50 font-sans font-medium text-[14px] uppercase tracking-[0.08em] px-6 py-3 min-h-[48px] cursor-default"
-            title="The live site is being re-hosted — check back soon"
+          <a
+            href={LIVE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-ink text-cream font-sans font-medium text-[14px] uppercase tracking-[0.08em] px-6 py-3 min-h-[48px] transition-opacity hover:opacity-80"
           >
-            Visit The Pastel Stop — coming soon
-          </span>
+            Visit The Pastel Stop
+            <ExternalArrow />
+          </a>
         </div>
       </section>
       </div>
