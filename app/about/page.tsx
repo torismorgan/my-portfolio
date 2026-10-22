@@ -74,7 +74,7 @@ const PROCESS = [
 ];
 
 // The résumé PDF lives in /public, so it is served at this path.
-const RESUME_HREF = "/oris-morgan-resume.pdf";
+const RESUME_HREF = "/victoria-morgan-resume.pdf";
 
 export default function About() {
   return (
@@ -109,8 +109,8 @@ export default function About() {
           </a>
         </div>
 
-        {/* Right — photo, flush to right padding edge on desktop */}
-        <div className="relative w-full max-w-[320px] h-[360px] md:w-[520px] md:h-[580px] md:shrink-0 md:max-w-none md:mr-[-65px]">
+        {/* Right — photo, flush to right padding edge on desktop; scales with the window (same 520 × 580 proportions) so it never pushes past the edge on tablets */}
+        <div className="relative w-full max-w-[320px] h-[360px] md:w-[min(520px,42vw)] md:h-[min(580px,46.8vw)] md:shrink-0 md:max-w-none md:mr-[-65px]">
           <Image src="/image-me.png" alt="Victoria Morgan" fill className="object-contain md:object-right" />
         </div>
       </section>

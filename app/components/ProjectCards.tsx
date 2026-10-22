@@ -137,6 +137,10 @@ export default function ProjectCards() {
         return (
           <div
             key={i}
+            // Hover is tracked on the whole folder (tab row included), not the tab and body separately: when a folder opens its tab
+            // slides sideways, and tracking only the tab made it slip out from under the cursor, close, slide back and flicker.
+            onMouseEnter={() => !isMobile && canHover() && setActive(i)}
+            onMouseLeave={() => !isMobile && canHover() && setActive(null)}
             className="contents md:flex md:flex-col md:cursor-pointer md:min-w-0"
             style={{
               flexGrow: isActive ? 4 : isInactive ? 0.6 : 1,
@@ -155,8 +159,6 @@ export default function ProjectCards() {
               aria-pressed={isActive}
               aria-label={`Select project ${i + 1}: ${project.title}`}
               onClick={() => setActive(i)}
-              onMouseEnter={() => !isMobile && canHover() && setActive(i)}
-              onMouseLeave={() => !isMobile && canHover() && setActive(null)}
               className={`${project.tabRight ? "md:self-end" : "md:self-start"} flex flex-1 md:flex-none min-w-0 md:min-w-[130px] min-h-[44px] items-center justify-center ${project.tabRight ? "md:justify-end" : "md:justify-start"} gap-1 md:gap-1.5 px-1.5 md:pr-5 ${edgePad} md:pt-3 md:pb-1 rounded-[10px] md:rounded-t-[14px] md:rounded-b-none font-display font-bold leading-none shrink-0 text-left overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
               style={{
                 gridRow: 1,
@@ -188,8 +190,6 @@ export default function ProjectCards() {
             <div
               className={bodyClassName}
               onClick={() => (!isMobile && canHover() ? router.push(project.href) : setActive(i))}
-              onMouseEnter={() => !isMobile && canHover() && setActive(i)}
-              onMouseLeave={() => !isMobile && canHover() && setActive(null)}
               style={{
                 gridRow: 2,
                 gridColumn: "1 / -1",
@@ -213,9 +213,9 @@ export default function ProjectCards() {
               {/* Title + category + description — number sits above (in the tab), this block centers in the middle, the icon anchors the bottom */}
               <div className={`flex-1 min-h-0 flex flex-col justify-center gap-2 md:gap-0 text-center ${project.tabRight ? "md:text-right" : "md:text-left"}`}>
                 <p
-                  className="font-display font-medium mb-0 md:mb-2 overflow-hidden"
+                  // phones keep 24px; from tablet up the floor drops to 18px so one-word titles like STYLENOVA fit the narrow folders
+                  className="font-display font-medium mb-0 md:mb-2 overflow-hidden text-[24px] md:text-[clamp(18px,2.5vw,36px)]"
                   style={{
-                    fontSize: "clamp(24px, 2.5vw, 36px)",
                     lineHeight: 1.1,
                     opacity: showTitle ? 1 : 0,
                     whiteSpace: showTitle ? "normal" : "nowrap",

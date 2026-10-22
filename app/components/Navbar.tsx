@@ -15,7 +15,7 @@ const NAV_LINKS = [
 const MOBILE_LINKS = [
   { label: "HOME", href: "/", hoverBg: "#f0ede3" },
   ...NAV_LINKS,
-  { label: "RÉSUMÉ", href: "/oris-morgan-resume.pdf", hoverBg: "#f0ede3", external: true },
+  { label: "RÉSUMÉ", href: "/victoria-morgan-resume.pdf", hoverBg: "#f0ede3", external: true },
 ] as const;
 
 const focusRing = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue";

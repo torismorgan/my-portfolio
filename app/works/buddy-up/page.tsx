@@ -207,7 +207,11 @@ const FEEDBACK = [
   },
   {
     heard: "Version two looked better, but finding a community was still confusing, and it was hard to get back or reach some parts of the app.",
-    changed: "Renamed it Buddy Up so the name and the main button say the same thing, and rebuilt navigation around five fixed tabs with a back button on every inner screen.",
+    changed: "Rebuilt navigation around five fixed tabs with a back button on every inner screen, and made finding buddies and activities the heart of Explore.",
+  },
+  {
+    heard: "The name GymBuds and the dumbbell logo made it feel like a gym app, not an app for finding friends to move with.",
+    changed: "Renamed it Buddy Up, so the name and the main button say the same thing, and replaced the dumbbell with Two Buds: two people forming one heart.",
   },
   {
     heard: "Testers kept switching between light and dark, unsure which should come first and what feeling each one gave.",
@@ -663,7 +667,7 @@ export default function BuddyUpCaseStudy() {
           <Head n="11" title="Two Buds, One Heart" />
           <Paras
             paras={[
-              "The dumbbell in the old logo said “gym”, so it had to go. I explored three directions and chose Two buds: two dots for two people, and one curve that turns them into a heart. It’s warm, it reads at app-icon size, and it carries the idea of the product.",
+              "Testers said the dumbbell in the old logo made it feel like a gym app rather than an app for friends, so it had to go. I explored three directions and chose Two buds: two dots for two people, and one curve that turns them into a heart. It’s warm, it reads at app-icon size, and it carries the idea of the product.",
               "Black and lime stayed from v2. They give the energy people associate with working out, with the lime reserved for the actions that matter.",
             ]}
           />
@@ -864,7 +868,7 @@ export default function BuddyUpCaseStudy() {
           <Head n="15" title="What People Said" />
           <Paras
             paras={[
-              "I asked friends to click through each version and tell me what confused them. Every round changed the design: the colour, the name, the navigation and the theme all came out of their feedback.",
+              "I asked friends to click through each version and tell me what confused them. Every round changed the design: the colour, the name, the logo, the navigation and the theme all came out of their feedback.",
             ]}
           />
         </div>
