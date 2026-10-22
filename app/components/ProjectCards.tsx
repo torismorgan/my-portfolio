@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState, useSyncExternalStore } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -15,6 +16,10 @@ type Project = {
   textColor: string;
   white: boolean;
   tabRight?: boolean;
+  /** a screen from the case study, shown on the sheet of paper that slides out of the open folder */
+  preview: string;
+  /** which part of the preview image shows on the sheet (CSS object-position) */
+  previewPos?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -25,6 +30,7 @@ const PROJECTS: Project[] = [
     category: "Brand Website",
     description: "A lifestyle and community platform for every version of her.",
     href: "/works/the-pastel-stop",
+    preview: "/work/the-pastel-stop/hero.jpg",
     bg: "#F1DA65",
     textColor: "#1f1f1f",
     white: false,
@@ -36,6 +42,8 @@ const PROJECTS: Project[] = [
     category: "Game Redesign",
     description: "An interactive fashion game redesigned around story and choice.",
     href: "/works/stylenova",
+    preview: "/work/stylenova/s-title.webp",
+    previewPos: "center 6%",
     bg: "#1f1f1f",
     textColor: "#f5f2ea",
     white: true,
@@ -47,6 +55,8 @@ const PROJECTS: Project[] = [
     category: "Type Study",
     description: "An experimental typeface developed into a digital identity.",
     href: "/works/nauryz-red",
+    preview: "/work/nauryz-red/website-home.png",
+    previewPos: "center 48%",
     bg: "#72C16B",
     textColor: "#1f1f1f",
     white: false,
@@ -58,6 +68,8 @@ const PROJECTS: Project[] = [
     category: "App Redesign",
     description: "A social fitness app that finds you someone to move with.",
     href: "/works/buddy-up",
+    preview: "/work/buddy-up/s-explore.png",
+    previewPos: "center 52%",
     bg: "#5289EB", // the site blue (--color-blue)
     textColor: "#f5f2ea", // the site cream, softer than pure white
     white: true,
@@ -159,7 +171,7 @@ export default function ProjectCards() {
               aria-pressed={isActive}
               aria-label={`Select project ${i + 1}: ${project.title}`}
               onClick={() => setActive(i)}
-              className={`${project.tabRight ? "md:self-end" : "md:self-start"} flex flex-1 md:flex-none min-w-0 md:min-w-[130px] min-h-[44px] items-center justify-center ${project.tabRight ? "md:justify-end" : "md:justify-start"} gap-1 md:gap-1.5 px-1.5 md:pr-5 ${edgePad} md:pt-3 md:pb-1 rounded-[10px] md:rounded-t-[14px] md:rounded-b-none font-display font-bold leading-none shrink-0 text-left overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
+              className={`${project.tabRight ? "md:self-end" : "md:self-start"} flex flex-1 md:flex-none min-w-0 ${isInactive ? "md:min-w-0" : "md:min-w-[130px]"} min-h-[44px] items-center justify-center ${project.tabRight ? "md:justify-end" : "md:justify-start"} gap-1 md:gap-1.5 px-1.5 md:pr-5 ${edgePad} md:pt-3 md:pb-1 rounded-[10px] md:rounded-t-[14px] md:rounded-b-none ${isInactive ? "" : project.tabRight ? "md:rounded-tl-none" : "md:rounded-tr-none"} md:relative md:z-0 md:overflow-visible font-display font-bold leading-none shrink-0 text-left overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
               style={{
                 gridRow: 1,
                 gridColumn: i + 1,
@@ -183,14 +195,48 @@ export default function ProjectCards() {
               }}
             >
               <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              {/* Folder shoulder: a smooth slope from the top of the tab down into the folder body, so tab and body read as one folder.
+                  Squeezed folders drop it (and their tab shrinks to fit the number) so it never covers the next tab's number. */}
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 28 40"
+                preserveAspectRatio="none"
+                className={`hidden md:block absolute top-0 h-[calc(100%+1px)] w-[28px] pointer-events-none ${project.tabRight ? "right-full" : "left-full"}`}
+                style={{ opacity: isInactive ? 0 : 1, transition: `opacity ${fadeSpeed} ease` }}
+              >
+                <path d={project.tabRight ? "M28 0C14 0 14 40 0 40H28Z" : "M0 0C14 0 14 40 28 40H0Z"} fill={project.bg} />
+              </svg>
               <span className="md:hidden truncate tracking-[-0.02em]">{project.tabLabel ?? project.title}</span>
             </button>
+
+            {/* A sheet of paper tucked inside the folder: hidden behind the body at rest, it slides up and peeks out of the top when the folder opens (desktop only) */}
+            <div
+              aria-hidden="true"
+              className="hidden md:block absolute bottom-0 h-[70%] pointer-events-none"
+              style={{
+                zIndex: 1,
+                left: project.tabRight ? "22%" : "34%",
+                right: project.tabRight ? "34%" : "22%",
+                transform: isActive ? `translateY(-132px) rotate(${project.tabRight ? -2 : 2}deg)` : "translateY(0) rotate(0deg)",
+                opacity: isActive ? 1 : 0,
+                transition: `transform ${transitionSpeed} cubic-bezier(0.34, 1.3, 0.64, 1), opacity ${fadeSpeed} ease`,
+                transitionDelay: isActive ? "0.12s" : "0s",
+              }}
+            >
+              <div className="relative h-full rounded-t-[8px] bg-[#fbfaf6] p-2 shadow-[0_-4px_14px_rgba(0,0,0,0.14)]">
+                <div className="relative h-[110px] overflow-hidden rounded-[4px] bg-black/5">
+                  <Image src={project.preview} alt="" fill sizes="320px" className="object-cover" style={{ objectPosition: project.previewPos ?? "center top" }} />
+                </div>
+              </div>
+            </div>
 
             {/* Card body — the single source of each project's content, repositioned per breakpoint. Also acts as a hover/click target so the whole card responds, not just the tab. On hover-capable devices, once the card is expanded a click anywhere on it opens the case study, same as the "View Case Study" link. */}
             <div
               className={bodyClassName}
               onClick={() => (!isMobile && canHover() ? router.push(project.href) : setActive(i))}
               style={{
+                position: "relative",
+                zIndex: 2, // the front of the folder, in front of the sheet of paper
                 gridRow: 2,
                 gridColumn: "1 / -1",
                 backgroundColor: project.bg,
