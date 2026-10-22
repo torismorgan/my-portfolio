@@ -21,7 +21,7 @@ const PROJECTS: Project[] = [
   {
     num: "1",
     title: "THE PASTEL STOP",
-    tabLabel: "PASTEL STOP",
+    tabLabel: "PASTEL",
     category: "Brand Website",
     description: "A lifestyle and community platform for every version of her.",
     href: "/works/the-pastel-stop",
@@ -32,6 +32,7 @@ const PROJECTS: Project[] = [
   {
     num: "2",
     title: "STYLENOVA",
+    tabLabel: "NOVA",
     category: "Game Redesign",
     description: "An interactive fashion game redesigned around story and choice.",
     href: "/works/stylenova",
@@ -42,12 +43,24 @@ const PROJECTS: Project[] = [
   {
     num: "3",
     title: "NAÝRYZ RED",
+    tabLabel: "NAÝRYZ",
     category: "Type Study",
     description: "An experimental typeface developed into a digital identity.",
     href: "/works/nayryz-red",
     bg: "#72C16B",
     textColor: "#1f1f1f",
     white: false,
+  },
+  {
+    num: "4",
+    title: "BUDDY UP",
+    tabLabel: "BUDDY",
+    category: "App Redesign",
+    description: "A social fitness app that finds you someone to move with.",
+    href: "/works/buddy-up",
+    bg: "#3579F3", // the site blue — same as the About page leaf shape
+    textColor: "#ffffff",
+    white: true,
     tabRight: true,
   },
 ];
@@ -102,7 +115,7 @@ export default function ProjectCards() {
 
   return (
     <div
-      className="grid grid-cols-3 gap-x-2 gap-y-3 items-start h-auto md:flex md:items-stretch md:gap-0 md:h-[280px] md:max-w-[1080px] md:mx-auto"
+      className="grid grid-cols-4 gap-x-2 gap-y-3 items-start h-auto md:flex md:items-stretch md:gap-0 md:h-[300px] md:max-w-[1280px] md:mx-auto"
       role="group"
       aria-label="Projects"
     >
@@ -151,10 +164,24 @@ export default function ProjectCards() {
                 backgroundColor: project.bg,
                 color: project.textColor,
                 fontSize: "clamp(9px, 2.9vw, 26px)",
+                // mobile: every tab keeps its full colour; the selected one grows down through the 12px gap and joins its card,
+                // like a folder tab, so it's clear which file is open
+                ...(isMobile && isActive
+                  ? {
+                      borderBottomLeftRadius: 0,
+                      borderBottomRightRadius: 0,
+                      minHeight: 56, // 44px tab + the 12px gap to the card
+                      marginBottom: -12,
+                      alignItems: "flex-start",
+                      paddingTop: 15, // keeps the label level with the 44px tabs beside it
+                      position: "relative" as const,
+                      zIndex: 1,
+                    }
+                  : {}),
               }}
             >
               <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <span className="md:hidden truncate">{project.tabLabel ?? project.title}</span>
+              <span className="md:hidden truncate tracking-[-0.02em]">{project.tabLabel ?? project.title}</span>
             </button>
 
             {/* Card body — the single source of each project's content, repositioned per breakpoint. Also acts as a hover/click target so the whole card responds, not just the tab. On hover-capable devices, once the card is expanded a click anywhere on it opens the case study, same as the "View Case Study" link. */}
@@ -168,12 +195,23 @@ export default function ProjectCards() {
                 gridColumn: "1 / -1",
                 backgroundColor: project.bg,
                 color: project.textColor,
-                borderRadius: project.tabRight ? "24px 0 24px 24px" : "0 24px 24px 24px",
+                // A right-hand tab sits on the top-right, and the top-left corner is always tucked under the previous folder — kept square so
+                // the two rounded corners never leave a cream notch where they meet.
+                // On mobile the corner under the selected (first or last) tab goes square so tab and card read as one folder.
+                borderRadius: isMobile
+                  ? i === 0
+                    ? "0 24px 24px 24px"
+                    : i === PROJECTS.length - 1
+                      ? "24px 0 24px 24px"
+                      : "24px"
+                  : project.tabRight
+                    ? "0 0 24px 24px"
+                    : "0 24px 24px 24px",
                 cursor: "pointer",
               }}
             >
               {/* Title + category + description — number sits above (in the tab), this block centers in the middle, the icon anchors the bottom */}
-              <div className={`flex-1 flex flex-col justify-center gap-2 md:gap-0 text-center ${project.tabRight ? "md:text-right" : "md:text-left"}`}>
+              <div className={`flex-1 min-h-0 flex flex-col justify-center gap-2 md:gap-0 text-center ${project.tabRight ? "md:text-right" : "md:text-left"}`}>
                 <p
                   className="font-display font-medium mb-0 md:mb-2 overflow-hidden"
                   style={{
@@ -192,6 +230,8 @@ export default function ProjectCards() {
                   className="font-sans font-medium text-[11px] md:text-[13px] opacity-80 overflow-hidden"
                   style={{
                     opacity: isActive ? 0.8 : 0,
+                    // collapsed while closed so the hidden text never pushes the title or star out of place
+                    maxHeight: isActive ? 80 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
                     transition: `opacity ${fadeSpeed} ease`,
                     transitionDelay: isActive ? "0.18s" : "0s",
@@ -204,6 +244,7 @@ export default function ProjectCards() {
                   className="font-sans font-light text-[13px] md:text-[17px] leading-[19px] md:leading-[25px] overflow-hidden"
                   style={{
                     opacity: isActive ? 1 : 0,
+                    maxHeight: isActive ? 160 : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
                     transition: `opacity ${fadeSpeed} ease`,
                     transitionDelay: isActive ? "0.25s" : "0s",
@@ -218,6 +259,9 @@ export default function ProjectCards() {
                   className={`inline-flex items-center gap-1.5 font-display font-medium text-[13px] md:text-[15px] min-h-[44px] w-fit mx-auto ${project.tabRight ? "md:mr-0 md:origin-right" : "md:ml-0 md:origin-left"} origin-center mt-2 md:mt-2 overflow-hidden hover:font-bold hover:[transform:scale(1.14)] focus-visible:font-bold focus-visible:[transform:scale(1.14)] active:[transform:scale(1.14)]`}
                   style={{
                     opacity: isActive ? 1 : 0,
+                    minHeight: isActive ? 44 : 0,
+                    maxHeight: isActive ? 60 : 0,
+                    marginTop: isActive ? undefined : 0,
                     whiteSpace: isActive ? "normal" : "nowrap",
                     // the fade-in waits for the card to open; the hover growth is immediate
                     transitionProperty: "opacity, transform",

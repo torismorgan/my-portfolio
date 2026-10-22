@@ -83,3 +83,10 @@ body {
 .sn-title {
   font-family: "Azonix", var(--font-poppins-sn), sans-serif;
 }
+
+/* Buddy Up case study: Poppins throughout, the app's own typeface (loaded in that page). */
+.bu-body,
+.bu-body .font-sans,
+.bu-title {
+  font-family: var(--font-poppins-bu), sans-serif;
+}

@@ -1,5 +1,5 @@
 /*
-  Single source of truth for the three case studies — their order, names and hrefs.
+  Single source of truth for the four case studies — their order, names and hrefs.
   Used by the bottom ProjectNav (previous/next), the case-study Breadcrumb (project number),
   and anywhere else that needs to loop or number the projects consistently.
 */
@@ -7,6 +7,7 @@ export const PROJECTS = [
   { slug: "pastel-stop", name: "The Pastel Stop", href: "/works/the-pastel-stop" },
   { slug: "stylenova", name: "Style Nova", href: "/works/stylenova" },
   { slug: "nauryz", name: "Nauryz Red", href: "/works/nayryz-red" },
+  { slug: "buddy-up", name: "Buddy Up", href: "/works/buddy-up" },
 ] as const;
 
 export type ProjectSlug = (typeof PROJECTS)[number]["slug"];

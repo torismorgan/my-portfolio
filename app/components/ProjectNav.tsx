@@ -3,8 +3,8 @@ import { PROJECTS, type ProjectSlug } from "@/app/lib/projects";
 
 /*
   Bottom-of-case-study navigation: ← Previous project | All projects | Next project →.
-  The projects run in one loop (Pastel Stop → StyleNova → Nauryz Red → Pastel Stop …), so
-  every page shows the other two by name, plus a way out to the Works index in the middle.
+  The projects run in one loop (Pastel Stop → StyleNova → Nauryz Red → Buddy Up → Pastel Stop …),
+  so every page shows its neighbours by name, plus a way out to the Works index in the middle.
 */
 
 const focusRing = "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue";
