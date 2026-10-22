@@ -42,11 +42,11 @@ const PROJECTS: Project[] = [
   },
   {
     num: "3",
-    title: "NAÝRYZ RED",
-    tabLabel: "NAÝRYZ",
+    title: "NAURYZ RED",
+    tabLabel: "NAURYZ",
     category: "Type Study",
     description: "An experimental typeface developed into a digital identity.",
-    href: "/works/nayryz-red",
+    href: "/works/nauryz-red",
     bg: "#72C16B",
     textColor: "#1f1f1f",
     white: false,
@@ -58,8 +58,8 @@ const PROJECTS: Project[] = [
     category: "App Redesign",
     description: "A social fitness app that finds you someone to move with.",
     href: "/works/buddy-up",
-    bg: "#3579F3", // the site blue — same as the About page leaf shape
-    textColor: "#ffffff",
+    bg: "#5289EB", // the site blue (--color-blue)
+    textColor: "#f5f2ea", // the site cream, softer than pure white
     white: true,
     tabRight: true,
   },

@@ -15,7 +15,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Oris Morgan",
+  title: "Victoria Morgan",
   description:
     "UI/UX Designer, Graphic Artist & Front-End Developer who loves creating bold and interactive digital experiences.",
 };

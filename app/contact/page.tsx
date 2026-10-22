@@ -3,7 +3,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ExternalArrow from "@/app/components/ExternalArrow";
 
-export const metadata = { title: "Let’s chat — Oris Morgan" };
+export const metadata = { title: "Let’s chat — Victoria Morgan" };
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/victoria-orisakite-morgan/";
 // Google Calendar appointment schedule — Google adds a Google Meet link to every booking.

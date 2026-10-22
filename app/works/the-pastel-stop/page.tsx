@@ -6,6 +6,8 @@ import ProjectNav from "@/app/components/ProjectNav";
 import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
 import ExternalArrow from "@/app/components/ExternalArrow";
 import SectionNav from "@/app/components/SectionNav";
+import CaseSummary from "@/app/components/CaseSummary";
+import FeedbackLoop from "@/app/components/FeedbackLoop";
 import Logo from "./Logo";
 import ColourSystem from "./ColourSystem";
 import WebsiteExperience from "./WebsiteExperience";
@@ -16,7 +18,7 @@ const spartan = League_Spartan({ subsets: ["latin"], weight: ["500", "600", "700
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600"], variable: "--font-poppins" });
 
 export const metadata = {
-  title: "The Pastel Stop — Oris Morgan",
+  title: "The Pastel Stop — Victoria Morgan",
   description:
     "A lifestyle and community platform combining editorial storytelling, seasonal design and shared experiences for every version of her.",
 };
@@ -44,7 +46,36 @@ const SECTIONS = [
   { id: "brand", label: "Brand" },
   { id: "website", label: "Website" },
   { id: "content-ecosystem", label: "Community" },
+  { id: "feedback", label: "Feedback" },
   { id: "outcome", label: "Outcome" },
+];
+
+const SUMMARY: [string, string][] = [
+  ["The problem", "Women moving through different stages of life had no single place that mixed honest editorial, recommendations and real-world community."],
+  ["My role", "Founder, brand designer, UI/UX designer and front-end developer: I took it from idea to launch."],
+  ["What I did", "Built the brand, colour system, website, social presence and community events, all from one visual language."],
+  ["Result", "A live site, 52 Instagram followers in the first 48 hours, and a first event that filled 12 of its 15 spots."],
+];
+
+// Paraphrased from readers and community members after launch.
+const FEEDBACK = [
+  {
+    heard: "Once I was deep in the site, it was hard to get back to the main page.",
+    changed: "Added a sticky header, so home and the main sections are always one tap away.",
+  },
+  {
+    heard: "On the Dear Her pages I didn’t realise some things were clickable, and the type made it harder to tell.",
+    changed: "Adjusted the fonts and made links and buttons look clearly interactive.",
+  },
+  {
+    heard: "The articles were long, and it wasn’t obvious how to get back when I finished one.",
+    changed: "Tightened the article length and added a clear way back at the end of each piece.",
+  },
+];
+
+const STATS = [
+  { value: "12 / 15", label: "spots filled at the first community event, a small, intimate gathering" },
+  { value: "0 → 52", label: "Instagram followers in the first 48 hours after launch" },
 ];
 
 export default function ThePastelStopCaseStudy() {
@@ -105,6 +136,8 @@ export default function ThePastelStopCaseStudy() {
         ))}
       </dl>
 
+      <CaseSummary items={SUMMARY} accent={"#20242f"} />
+
       {/* ── 2. The idea ── */}
       <section className={`${pad} py-14 md:py-24 border-b border-ink`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
@@ -135,6 +168,26 @@ export default function ThePastelStopCaseStudy() {
       <ColourSystem />
       <WebsiteExperience />
       <Community />
+
+      {/* ── Feedback ── */}
+      <section id="feedback" className={`${pad} py-14 md:py-24 border-b border-ink ${scrollOffset}`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <p className={eyebrow}>Feedback</p>
+            <h2
+              className="mt-4 uppercase ps-title font-semibold leading-[1.02] tracking-[-0.03em] text-balance text-[clamp(34px,5.4vw,72px)]"
+              style={{ color: NAVY }}
+            >
+              Shaped by the people using it
+            </h2>
+          </div>
+          <p className={bodyText}>
+            Because The Pastel Stop is live, real readers told me where they got lost. Each round of feedback became a
+            fix on the site, and the community kept growing alongside it.
+          </p>
+        </div>
+        <FeedbackLoop who="Readers, community members and event guests" rows={FEEDBACK} stats={STATS} accent={NAVY} />
+      </section>
 
       {/* ── 10. Outcome and ongoing direction ── */}
       <section id="outcome" className={`${pad} py-14 md:py-24 border-b border-ink ${scrollOffset}`}>

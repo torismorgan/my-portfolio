@@ -5,9 +5,11 @@ import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
 import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
 import ExternalArrow from "@/app/components/ExternalArrow";
+import SectionNav from "@/app/components/SectionNav";
+import CaseSummary from "@/app/components/CaseSummary";
 
 export const metadata = {
-  title: "Style Nova — Oris Morgan",
+  title: "Style Nova — Victoria Morgan",
   description:
     "Style Nova is an interactive fashion game redesigned with stronger storytelling, expanded choices, and a more engaging mobile experience.",
 };
@@ -25,6 +27,18 @@ const eyebrow = "font-sans text-[12px] uppercase tracking-[0.14em] text-ink/70";
 const bodyText = "font-sans text-[16px] md:text-[17px] leading-[1.7] text-ink/80";
 const pad = "px-6 md:px-9";
 const section = `${pad} py-14 md:py-24 border-b border-ink`;
+const scrollOffset = "scroll-mt-[var(--case-study-offset,190px)]";
+
+const SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "background", label: "Background" },
+  { id: "problem", label: "Problem" },
+  { id: "redesign", label: "Redesign" },
+  { id: "development", label: "Development" },
+  { id: "visuals", label: "Visuals" },
+  { id: "journey", label: "Journey" },
+  { id: "outcome", label: "Outcome" },
+];
 const twoCol = "grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start";
 
 /* ── content ── */
@@ -154,16 +168,24 @@ function Sketch({ src, alt, w = 760, h = 1082, className = "" }: { src: string; 
 
 /* ── the page ── */
 
+const SUMMARY: [string, string][] = [
+  ["The problem", "The original dress-up game was linear: pick an outfit, get a result, move on. There was little story and few real choices."],
+  ["My role", "Visual design, UI/UX and character design, from the first 2D sketches of Nova and Chanel to the game screens."],
+  ["What I did", "Redesigned it mobile-first around story and choice: three events, a rival, and outcomes that change with every outfit."],
+  ["Result", "In progress. The visual system, characters, brunch and red-carpet events are complete; the after-party is being refined."],
+];
+
 export default function StyleNovaCaseStudy() {
   return (
     <main className={`bg-cream text-ink flex flex-col ${poppins.variable}`}>
       <Navbar />
       <CaseStudyBreadcrumb current="stylenova" />
+      <SectionNav items={SECTIONS} />
 
       <div className="sn-body">
 
       {/* ── 1. Hero ── */}
-      <section className="border-b border-ink">
+      <section id="overview" className={`border-b border-ink ${scrollOffset}`}>
         <div className={`${pad} pt-12 md:pt-20 pb-10 md:pb-14 text-center`}>
           <h1
             className="sn-title font-normal uppercase leading-[1] tracking-[0.01em] text-[clamp(32px,9.6vw,72px)] md:text-[clamp(72px,8.8vw,144px)]"
@@ -229,6 +251,8 @@ export default function StyleNovaCaseStudy() {
         ))}
       </dl>
 
+      <CaseSummary items={SUMMARY} accent={"#ff4fa3"} />
+
       <div className="border-b border-ink flex flex-wrap items-center justify-center gap-3 px-6 py-5 md:py-6">
         {LINKS.map((l) => (
           <a
@@ -269,7 +293,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 03 The original game ── */}
-      <section className={section}>
+      <section id="background" className={`${section} ${scrollOffset}`}>
         <Head n="02" title="Where it started" />
         <Paras
           className="mt-8 max-w-[760px]"
@@ -296,7 +320,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 04 The problem ── */}
-      <section className={section}>
+      <section id="problem" className={`${section} ${scrollOffset}`}>
         <Head n="03" title="The problem" />
         <Paras
           className="mt-8 max-w-[760px]"
@@ -321,7 +345,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 05 The redesign ── */}
-      <section className={section}>
+      <section id="redesign" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
           <Head n="04" title="The redesign" />
           <Paras
@@ -396,7 +420,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 07 AI-assisted development ── */}
-      <section className={section}>
+      <section id="development" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
           <Head n="06" title="Developing the characters" />
           <div>
@@ -472,7 +496,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 08 Visual direction ── */}
-      <section className={section}>
+      <section id="visuals" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
           <Head n="07" title="Y2K, reimagined" />
           <Paras
@@ -571,7 +595,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 09 The player journey ── */}
-      <section className={section}>
+      <section id="journey" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
           <Head n="08" title="The experience" />
           <Paras
@@ -714,7 +738,7 @@ export default function StyleNovaCaseStudy() {
       </section>
 
       {/* ── 14 Current status ── */}
-      <section className={section}>
+      <section id="outcome" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
           <Head n="13" title="What’s next" />
           <div>

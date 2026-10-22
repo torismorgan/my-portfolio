@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Navbar from "@/app/components/Navbar";
+import Link from "next/link";
 import Footer from "@/app/components/Footer";
 
-export const metadata = { title: "About — Oris Morgan" };
+export const metadata = { title: "About — Victoria Morgan" };
 
 const SKILLS = [
   {
@@ -23,13 +24,53 @@ const SKILLS = [
 ];
 
 const STORY =
-  "I’m Oris, a visual designer who brings ideas to life through branding, UI/UX, editorial, and interactive design. I’m drawn to bold concepts, strong typography, and thoughtful details that make digital experiences feel expressive and easy to use.";
+  "I’m Victoria, a visual designer who brings ideas to life through branding, UI/UX, editorial, and interactive design. I’m drawn to bold concepts, strong typography, and thoughtful details that make digital experiences feel expressive and easy to use.";
 
 const STRENGTHS = [
   { label: "Visual Direction", desc: "Branding, typography, and editorial design" },
   { label: "UI/UX", desc: "Wireframing, prototyping, and interaction design" },
   { label: "Front-End", desc: "HTML, CSS, and JavaScript" },
   { label: "Accessibility", desc: "Inclusive and usable digital experiences" },
+];
+
+// How I work: each step points to the case study where you can see it happen.
+const PROCESS = [
+  {
+    title: "Listen first",
+    desc: "Before designing anything, I talk to the people it’s for and look for what actually stops them.",
+    seen: [["Buddy Up research", "/works/buddy-up#research"]],
+    color: "#5289eb",
+  },
+  {
+    title: "Reframe the problem",
+    desc: "I make sure I’m solving the right problem, even if that means changing the product, not just its look.",
+    seen: [["Buddy Up", "/works/buddy-up#background"], ["StyleNova", "/works/stylenova#problem"]],
+    color: "#e04040",
+  },
+  {
+    title: "Sketch and explore",
+    desc: "Paper sketches and several directions come before polish, so the best idea wins, not the first one.",
+    seen: [["StyleNova sketches", "/works/stylenova#redesign"], ["Buddy Up logos", "/works/buddy-up#brand"]],
+    color: "#f5c518",
+  },
+  {
+    title: "Build a system",
+    desc: "Colour tokens, type and reusable components keep every screen consistent, themeable and accessible.",
+    seen: [["Buddy Up system", "/works/buddy-up#system"], ["Nauryz Red", "/works/nauryz-red#system"]],
+    color: "#4dba72",
+  },
+  {
+    title: "Prototype and build",
+    desc: "I make it real: a clickable prototype in Figma, or a working site in HTML, CSS and JavaScript.",
+    seen: [["The Pastel Stop", "/works/the-pastel-stop#website"], ["Buddy Up prototype", "/works/buddy-up#outcome"]],
+    color: "#5289eb",
+  },
+  {
+    title: "Test and refine",
+    desc: "I put the work in front of people, watch where they get stuck, and fix it before calling it done.",
+    seen: [["Buddy Up", "/works/buddy-up#outcome"]],
+    color: "#e04040",
+  },
 ];
 
 // The résumé PDF lives in /public, so it is served at this path.
@@ -54,7 +95,7 @@ export default function About() {
             Product Designer
           </h1>
           <p className="font-sans font-light text-[13px] md:text-[17px] leading-[21px] md:leading-[27px] mb-8 text-ink/80">
-            I&apos;m Oris Morgan, a UI/UX designer and developer creating concept-led digital
+            I&apos;m Victoria Morgan, a UI/UX designer and developer creating concept-led digital
             experiences with clean systems, strong typography, and thoughtful interaction. I
             design in Figma and bring ideas to life with HTML/CSS/JavaScript.
           </p>
@@ -70,7 +111,7 @@ export default function About() {
 
         {/* Right — photo, flush to right padding edge on desktop */}
         <div className="relative w-full max-w-[320px] h-[360px] md:w-[520px] md:h-[580px] md:shrink-0 md:max-w-none md:mr-[-65px]">
-          <Image src="/image-me.png" alt="Oris Morgan" fill className="object-contain md:object-right" />
+          <Image src="/image-me.png" alt="Victoria Morgan" fill className="object-contain md:object-right" />
         </div>
       </section>
 
@@ -169,6 +210,43 @@ export default function About() {
             View my résumé
             <span aria-hidden="true">→</span>
           </a>
+        </div>
+      </section>
+
+      {/* ── How I work ── */}
+      <section aria-labelledby="how-i-work" className="px-6 sm:px-8 md:px-[65px] pb-14 md:pb-[96px]">
+        <div className="max-w-[1180px] mx-auto">
+          <h2 id="how-i-work" className="font-display font-bold md:font-light text-ink text-center" style={{ fontSize: "clamp(40px, 7vw, 100px)" }}>
+            How I Work
+          </h2>
+          <p className="mt-3 md:mt-4 font-sans text-[16px] md:text-[18px] leading-[1.6] text-ink/75 text-center max-w-[560px] mx-auto">
+            Six steps I follow on every project, with links to where you can see each one in my work.
+          </p>
+          <ol className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+            {PROCESS.map((step, i) => (
+              <li key={step.title} className="border border-ink md:border-ink/15 rounded-none md:rounded-[16px] bg-cream p-6 md:p-8 flex flex-col">
+                <div className="flex items-center gap-3">
+                  <span aria-hidden="true" className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: step.color }} />
+                  <span className="font-sans text-[13px] uppercase tracking-[0.12em] text-ink/70">Step {String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="mt-4 font-display font-bold md:font-semibold uppercase md:normal-case text-[18px] md:text-[22px] leading-[1.2] text-ink">
+                  {step.title}
+                </h3>
+                <p className="mt-3 font-sans text-[16px] leading-[1.6] text-ink/80">{step.desc}</p>
+                <p className="mt-auto pt-5 font-sans text-[14px] leading-[1.5] text-ink/70">
+                  Seen in:{" "}
+                  {step.seen.map(([label, href], j) => (
+                    <span key={href}>
+                      {j > 0 && ", "}
+                      <Link href={href} className="text-ink underline underline-offset-2 hover:opacity-70 transition-opacity">
+                        {label}
+                      </Link>
+                    </span>
+                  ))}
+                </p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

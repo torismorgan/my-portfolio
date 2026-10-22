@@ -3,7 +3,7 @@ import Footer from "@/app/components/Footer";
 import ProjectCards from "@/app/components/ProjectCards";
 import Asterisk from "@/app/components/Asterisk";
 
-export const metadata = { title: "Works — Oris Morgan" };
+export const metadata = { title: "Works — Victoria Morgan" };
 
 export default function Works() {
   return (

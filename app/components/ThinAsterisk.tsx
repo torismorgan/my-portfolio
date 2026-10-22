@@ -1,6 +1,6 @@
 /*
   The thin-lined asterisk mark used as the site's brand symbol — originally only in the
-  Footer, above "Oris Morgan". Shared here so the Navbar can pair it with the wordmark
+  Footer, above "Victoria Morgan". Shared here so the Navbar can pair it with the wordmark
   too, giving the logo a recognizable icon + name lockup instead of plain text.
 */
 export default function ThinAsterisk({ size = 48, className = "" }: { size?: number; className?: string }) {

@@ -6,9 +6,11 @@ import ProjectNav from "@/app/components/ProjectNav";
 import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
 import ExternalArrow from "@/app/components/ExternalArrow";
 import SectionNav from "@/app/components/SectionNav";
+import CaseSummary from "@/app/components/CaseSummary";
+import FeedbackLoop from "@/app/components/FeedbackLoop";
 
 export const metadata = {
-  title: "Buddy Up — Oris Morgan",
+  title: "Buddy Up — Victoria Morgan",
   description:
     "Buddy Up is a social fitness app redesigned around one insight: starting, or starting again, feels like a big step, and it’s easier with an accountability partner beside you.",
 };
@@ -43,6 +45,7 @@ const SECTIONS = [
   { id: "accountability", label: "Accountability" },
   { id: "brand", label: "Brand" },
   { id: "system", label: "System" },
+  { id: "feedback", label: "Feedback" },
   { id: "outcome", label: "Outcome" },
 ];
 
@@ -88,6 +91,29 @@ const BARRIERS = [
       "Buddies are matched on level, so you can find someone a step ahead to show you what to do, or someone at the same stage to get better with. Check-ins, shared streaks and friendly nudges keep you both going.",
     screen: "s-checkin",
     alt: "Check-in: Did you show up? with a five-week streak shared with Tessa",
+  },
+];
+
+const COMPETITORS = [
+  {
+    name: "Strava",
+    good: "A huge community, clubs and group events, and kudos that make logging a run feel social.",
+    gap: "The social part happens after the workout and centres on pace and distance, which can make a beginner feel behind before they start.",
+  },
+  {
+    name: "Meetup",
+    good: "Running clubs, hiking groups and classes in almost every city, with a clear time and place.",
+    gap: "You turn up to a group of strangers. There’s no one person who notices if you don’t come back.",
+  },
+  {
+    name: "Nike Run Club",
+    good: "Free guided runs and plans: the “show me what to do” half of what people asked for.",
+    gap: "The coach is a voice in your headphones. You’re still doing it alone.",
+  },
+  {
+    name: "Bumble BFF",
+    good: "Matching with new people nearby, with mutual opt-in that feels safe.",
+    gap: "Not built around movement, level or free times, so a match doesn’t lead to a plan.",
   },
 ];
 
@@ -171,6 +197,22 @@ const COMPONENTS = [
   "Buddy Up request",
   "Nudge button",
   "Theme switch",
+];
+
+// Paraphrased from friends who clicked through each version of the app.
+const FEEDBACK = [
+  {
+    heard: "Version one felt like a grocery app. It was too green, and it wasn’t clear what the app was actually for.",
+    changed: "Dropped the mint green for black and lime, and put the purpose on the very first screen: “Find someone to move with.”",
+  },
+  {
+    heard: "Version two looked better, but finding a community was still confusing, and it was hard to get back or reach some parts of the app.",
+    changed: "Renamed it Buddy Up so the name and the main button say the same thing, and rebuilt navigation around five fixed tabs with a back button on every inner screen.",
+  },
+  {
+    heard: "Testers kept switching between light and dark, unsure which should come first and what feeling each one gave.",
+    changed: "Built both themes from one set of colour tokens, kept dark as the starting theme for its energy, and added a Light / Dark / Auto setting so people choose.",
+  },
 ];
 
 const LEARNINGS = [
@@ -315,6 +357,13 @@ function PrototypeButton({ dark = false }: { dark?: boolean }) {
 
 /* ── the page ── */
 
+const SUMMARY: [string, string][] = [
+  ["The problem", "Starting, or coming back to, exercise feels like a big step to take alone. The first version was a generic tracker that didn’t help."],
+  ["My role", "UX/UI and brand designer: research, product strategy, naming, identity, design system and prototype."],
+  ["What I did", "Talked to people who exercise, reframed the app around accountability partners, and designed 60+ clickable screens in light and dark."],
+  ["Result", "A complete, fully clickable prototype with its own identity and design system, shaped by feedback from friends who tried every version."],
+];
+
 export default function BuddyUpCaseStudy() {
   return (
     <main className={`bg-cream text-ink flex flex-col ${poppins.variable}`}>
@@ -371,6 +420,8 @@ export default function BuddyUpCaseStudy() {
           </div>
         ))}
       </dl>
+
+      <CaseSummary items={SUMMARY} accent={LIME} />
 
       <div className="border-b border-ink flex flex-wrap items-center justify-center gap-3 px-6 py-5 md:py-6">
         <PrototypeButton />
@@ -481,10 +532,53 @@ export default function BuddyUpCaseStudy() {
         </div>
       </section>
 
-      {/* ── 06 From barrier to design ── */}
+      {/* ── 06 Competitor scan ── */}
+      <section className={section}>
+        <div className={twoCol}>
+          <Head n="06" title="Where Buddy Up Fits" />
+          <Paras
+            paras={[
+              "After the first pass of the redesign, I looked at what people already use to find movement or company. Each app solves part of the problem: community, structure, coaching or new friends. None of them pairs you with one person at your level, at a time you’re both free, who notices if you don’t show up.",
+              "That gap is where Buddy Up sits: a person, a plan and a time, with accountability built in.",
+            ]}
+          />
+        </div>
+        {/* stacked on phones, three columns from tablet up; the column labels repeat inline on phones */}
+        <div className="mt-12 md:mt-16 font-sans text-[15px] leading-[1.6]">
+          <div className="hidden md:grid grid-cols-[160px_1fr_1fr] gap-8 border-b border-ink py-3">
+            {["App", "What it does well", "What’s missing for someone starting out"].map((h) => (
+              <p key={h} className="text-[12px] uppercase tracking-[0.12em] font-medium text-ink/70">{h}</p>
+            ))}
+          </div>
+          <ul>
+            {COMPETITORS.map((c) => (
+              <li key={c.name} className="grid grid-cols-1 md:grid-cols-[160px_1fr_1fr] gap-2 md:gap-8 border-b border-ink/20 py-5">
+                <p className="bu-title font-medium text-[18px] text-ink">{c.name}</p>
+                <p className="text-ink/80">
+                  <span className="md:hidden font-medium text-ink">Does well: </span>
+                  {c.good}
+                </p>
+                <p className="text-ink/80">
+                  <span className="md:hidden font-medium text-ink">Missing: </span>
+                  {c.gap}
+                </p>
+              </li>
+            ))}
+            <li className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-8 border-b border-ink py-5 px-4 md:px-0 md:pl-0" style={{ backgroundColor: LIME_SOFT }}>
+              <p className="bu-title font-medium text-[18px] text-ink md:pl-4">Buddy Up</p>
+              <p className="text-ink md:pr-4">
+                Matches you with a buddy on activity, level and free times, turns the match into a plan, and keeps you both
+                showing up with check-ins and a shared streak.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* ── 07 From barrier to design ── */}
       <section id="design" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
-          <Head n="06" title="Every Barrier, Answered" />
+          <Head n="07" title="Every Barrier, Answered" />
           <Paras paras={["Each research finding became a specific design decision, so every screen has a reason to exist."]} />
         </div>
         <ol className="mt-12 md:mt-16 flex flex-col gap-6 md:gap-8">
@@ -511,7 +605,7 @@ export default function BuddyUpCaseStudy() {
       {FLOWS.map((f, i) => (
         <section key={f.title} className={section}>
           <div className={twoCol}>
-            <Head n={`07.${i + 1}`} title={f.title} />
+            <Head n={`08.${i + 1}`} title={f.title} />
             <Paras paras={[f.text]} />
           </div>
           <div className="mt-12 md:mt-16">
@@ -523,7 +617,7 @@ export default function BuddyUpCaseStudy() {
       {/* ── 08 Accountability ── */}
       <section id="accountability" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
-          <Head n="08" title="Accountability Without Guilt" />
+          <Head n="09" title="Accountability Without Guilt" />
           <Paras
             paras={[
               "Accountability is the product, so it runs through the whole app. Home opens on your next plan and who’s coming. After a session you check in with one tap, which extends the streak you share with your buddy. If someone goes quiet, you can send a friendly nudge.",
@@ -540,7 +634,7 @@ export default function BuddyUpCaseStudy() {
       <section className={section}>
         <div className={twoCol}>
           <div>
-            <Head n="09" title="Safe by Design" />
+            <Head n="10" title="Safe by Design" />
             <Paras
               className="mt-8"
               paras={[
@@ -566,7 +660,7 @@ export default function BuddyUpCaseStudy() {
       {/* ── 10 Brand ── */}
       <section id="brand" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
-          <Head n="10" title="Two Buds, One Heart" />
+          <Head n="11" title="Two Buds, One Heart" />
           <Paras
             paras={[
               "The dumbbell in the old logo said “gym”, so it had to go. I explored three directions and chose Two buds: two dots for two people, and one curve that turns them into a heart. It’s warm, it reads at app-icon size, and it carries the idea of the product.",
@@ -612,7 +706,7 @@ export default function BuddyUpCaseStudy() {
       {/* ── 11 Design system ── */}
       <section id="system" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
-          <Head n="11" title="One System, Light and Dark" />
+          <Head n="12" title="One System, Light and Dark" />
           <Paras
             paras={[
               "Every colour in the app is a Figma variable with a Dark and a Light value, so any screen switches theme in one step, and the prototype’s Appearance setting really does flip the whole app.",
@@ -692,7 +786,7 @@ export default function BuddyUpCaseStudy() {
       {/* ── 12 Three iterations ── */}
       <section className={section}>
         <div className={twoCol}>
-          <Head n="12" title="Three Iterations" />
+          <Head n="13" title="Three Iterations" />
           <Paras
             paras={[
               "The home screen tells the whole story. V1 asked “how many calories today?” V2 looked sharper but still asked the same question. Buddy Up asks “what am I doing next, and who’s counting on me?”",
@@ -727,7 +821,7 @@ export default function BuddyUpCaseStudy() {
         <div className={twoCol}>
           <div>
             <div className="flex items-baseline gap-5 md:gap-8">
-              <span className="font-sans text-[12px] uppercase tracking-[0.14em] text-white/60">13</span>
+              <span className="font-sans text-[12px] uppercase tracking-[0.14em] text-white/60">14</span>
               <h2 className="bu-title font-medium leading-[1.1] tracking-[-0.02em] text-[clamp(26px,3.6vw,52px)] text-white">
                 Try It Yourself
               </h2>
@@ -764,10 +858,23 @@ export default function BuddyUpCaseStudy() {
         </div>
       </section>
 
-      {/* ── 14 Outcome ── */}
+      {/* ── 15 Feedback ── */}
+      <section id="feedback" className={`${section} ${scrollOffset}`}>
+        <div className={twoCol}>
+          <Head n="15" title="What People Said" />
+          <Paras
+            paras={[
+              "I asked friends to click through each version and tell me what confused them. Every round changed the design: the colour, the name, the navigation and the theme all came out of their feedback.",
+            ]}
+          />
+        </div>
+        <FeedbackLoop who="A few friends, across all three versions of the app" rows={FEEDBACK} accent={OLIVE} />
+      </section>
+
+      {/* ── 16 Outcome ── */}
       <section id="outcome" className={`${section} ${scrollOffset}`}>
         <div className={twoCol}>
-          <Head n="14" title="What I Learned" />
+          <Head n="16" title="What I Learned" />
           <Paras
             paras={[
               "Buddy Up is now a complete, fully clickable prototype with its own identity and design system. The next step is usability testing with people who’ve fallen out of the habit, to see whether the accountability features actually bring them back.",

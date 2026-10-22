@@ -4,14 +4,17 @@ import Footer from "@/app/components/Footer";
 import ProjectNav from "@/app/components/ProjectNav";
 import CaseStudyBreadcrumb from "@/app/components/CaseStudyBreadcrumb";
 import ExternalArrow from "@/app/components/ExternalArrow";
+import SectionNav from "@/app/components/SectionNav";
+import CaseSummary from "@/app/components/CaseSummary";
+import FeedbackLoop from "@/app/components/FeedbackLoop";
 
 export const metadata = {
-  title: "Nauryz Red — Oris Morgan",
+  title: "Nauryz Red — Victoria Morgan",
   description:
     "A typography-led concept website exploring how one typeface can become an entire visual language.",
 };
 
-const A = "/work/nayryz-red";
+const A = "/work/nauryz-red";
 
 /* Project links, shown as a row under the project details. Add { label, href } entries here (e.g. the live website). */
 const LINKS = [
@@ -72,6 +75,18 @@ const eyebrow = "font-sans text-[12px] uppercase tracking-[0.14em] text-ink/70";
 const bodyText = "font-sans text-[16px] md:text-[17px] leading-[1.7] text-ink/80";
 const pad = "px-6 md:px-9";
 const section = `${pad} py-14 md:py-24 border-b border-ink`;
+const scrollOffset = "scroll-mt-[var(--case-study-offset,190px)]";
+
+const SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "typeface", label: "Typeface" },
+  { id: "system", label: "System" },
+  { id: "website", label: "Website" },
+  { id: "social", label: "Social" },
+  { id: "process", label: "Process" },
+  { id: "feedback", label: "Feedback" },
+  { id: "outcome", label: "Outcome" },
+];
 
 function Copy({ paras, className = "" }: { paras: string[]; className?: string }) {
   return (
@@ -84,6 +99,22 @@ function Copy({ paras, className = "" }: { paras: string[]; className?: string }
     </div>
   );
 }
+
+// Paraphrased from classmates' critique of the concept site.
+const FEEDBACK = [
+  {
+    heard: "The overall look is great, but the hierarchy needs to be clearer so it’s obvious what to read first.",
+    changed: "Pushed the contrast in scale and spacing between headings, labels and body text so each page has one clear starting point.",
+  },
+  {
+    heard: "On some pages, like the components page, I didn’t know how to get back, or that I could click to see more.",
+    changed: "Made back links and “click to see the components” prompts more visible, so every page shows where you are and where you can go.",
+  },
+  {
+    heard: "On the type-as-image page I didn’t realise there was more below.",
+    changed: "Added an arrow cue so people know to keep scrolling.",
+  },
+];
 
 function Heading({
   n,
@@ -165,14 +196,22 @@ function Caption({ children }: { children: React.ReactNode }) {
   return <p className={`${eyebrow} mb-3`}>{children}</p>;
 }
 
+const SUMMARY: [string, string][] = [
+  ["The brief", "Choose one typeface and make it the main component of a website, not decoration."],
+  ["My role", "UI/UX designer and front-end developer: concept, visual system, layouts and the build."],
+  ["What I did", "Built a site that uses Nauryz Red as image, as editorial type and as interface components, with hierarchy from scale and spacing alone."],
+  ["Result", "A live concept website, refined after classmate critique, with a clear rule for where an expressive typeface stays readable."],
+];
+
 export default function NauryzRedCaseStudy() {
   return (
     <main className="bg-cream text-ink flex flex-col">
       <Navbar />
       <CaseStudyBreadcrumb current="nauryz" />
+      <SectionNav items={SECTIONS} />
 
       {/* ── 1. Hero ── */}
-      <section className="border-b border-ink">
+      <section id="overview" className={`border-b border-ink ${scrollOffset}`}>
         <div className={`${pad} pt-12 md:pt-20 pb-10 md:pb-14 text-center`}>
           <h1
             className="font-sans font-light uppercase leading-[0.95] tracking-[-0.035em] text-[clamp(52px,14.5vw,84px)] md:text-[clamp(84px,11vw,176px)]"
@@ -236,6 +275,8 @@ export default function NauryzRedCaseStudy() {
         ))}
       </dl>
 
+      <CaseSummary items={SUMMARY} accent={"#c0392b"} />
+
       <div className="border-b border-ink flex flex-wrap items-center justify-center gap-3 px-6 py-5 md:py-6">
         {LINKS.map((l) => (
           <a
@@ -272,7 +313,7 @@ export default function NauryzRedCaseStudy() {
       </section>
 
       {/* ── 02 Typeface + Visual Exploration ── */}
-      <section className={`${pad} py-10 md:py-14 border-b border-ink`} style={{ backgroundColor: SPECIMEN_BG }}>
+      <section id="typeface" className={`${scrollOffset} ${pad} py-10 md:py-14 border-b border-ink`} style={{ backgroundColor: SPECIMEN_BG }}>
         <div className="flex items-baseline gap-5 md:gap-8">
           <span className={eyebrow}>02</span>
           <h2
@@ -340,7 +381,7 @@ export default function NauryzRedCaseStudy() {
       </section>
 
       {/* ── 03 Visual System ── */}
-      <section className={`${pad} py-10 md:py-14 border-b border-ink`}>
+      <section id="system" className={`${scrollOffset} ${pad} py-10 md:py-14 border-b border-ink`}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.25fr_1px_1.15fr_1px_1fr] gap-10 items-start">
           <div className="md:col-span-2 lg:col-span-1">
             <div className="flex items-baseline gap-5 md:gap-8">
@@ -409,7 +450,7 @@ export default function NauryzRedCaseStudy() {
       </section>
 
       {/* ── 04 Website Design ── */}
-      <section className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.31fr)_minmax(0,0.69fr)] border-b border-ink">
+      <section id="website" className={`grid grid-cols-1 lg:grid-cols-[minmax(0,0.31fr)_minmax(0,0.69fr)] border-b border-ink ${scrollOffset}`}>
         <div className={`${pad} py-12 md:py-16 lg:pr-6 flex flex-col justify-center`}>
           <div className="flex items-baseline gap-5 md:gap-8">
             <span className={eyebrow}>04</span>
@@ -476,8 +517,8 @@ export default function NauryzRedCaseStudy() {
       </section>
 
       {/* ── 05 Social Media ── */}
-      <section
-        className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] border-b border-ink text-white"
+      <section id="social"
+        className={`grid grid-cols-1 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] border-b border-ink text-white ${scrollOffset}`}
         style={{ backgroundColor: BLUE }}
       >
         <div className={`${pad} py-12 md:py-16 lg:pr-10 flex flex-col justify-center`}>
@@ -532,7 +573,7 @@ export default function NauryzRedCaseStudy() {
       </section>
 
       {/* ── 9. Process + Challenges ── */}
-      <section className={section}>
+      <section id="process" className={`${section} ${scrollOffset}`}>
         <Heading n="08" title="Process + Challenges" />
         <div className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-3">
           {PROCESS.map(([title, text], i) => (
@@ -552,10 +593,22 @@ export default function NauryzRedCaseStudy() {
         </div>
       </section>
 
-      {/* ── 11. Outcome ── */}
-      <section className={section}>
+      {/* ── Feedback ── */}
+      <section id="feedback" className={`${section} ${scrollOffset}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-          <Heading n="09" title="Outcome" />
+          <Heading n="09" title="What Classmates Said" />
+          <p className={bodyText}>
+            Classmates loved the overall look. Their critique was mostly about visibility: making sure people could
+            tell what mattered most, how to get around and that there was more to see.
+          </p>
+        </div>
+        <FeedbackLoop who="Classmates, during critique" rows={FEEDBACK} accent={RED} />
+      </section>
+
+      {/* ── 11. Outcome ── */}
+      <section id="outcome" className={`${section} ${scrollOffset}`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+          <Heading n="10" title="Outcome" />
           <Copy
             paras={[
               "The final concept demonstrates how one typeface can carry an entire website—from bold, image-like moments to functional interface components.",

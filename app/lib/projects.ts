@@ -6,7 +6,7 @@
 export const PROJECTS = [
   { slug: "pastel-stop", name: "The Pastel Stop", href: "/works/the-pastel-stop" },
   { slug: "stylenova", name: "Style Nova", href: "/works/stylenova" },
-  { slug: "nauryz", name: "Nauryz Red", href: "/works/nayryz-red" },
+  { slug: "nauryz", name: "Nauryz Red", href: "/works/nauryz-red" },
   { slug: "buddy-up", name: "Buddy Up", href: "/works/buddy-up" },
 ] as const;
 

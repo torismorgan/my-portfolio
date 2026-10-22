@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Asterisk from "@/app/components/Asterisk";
+import LiquidShape from "@/app/components/LiquidShape";
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
 
         {/* ── PORTFOLIO typography ── */}
         <div className="relative mb-[72px]">
+          {/* The shapes inside the word are links, so the heading carries its own name */}
           <h1
+            aria-label="Portfolio"
             className="flex flex-wrap items-baseline font-display font-bold leading-none text-ink select-none text-[clamp(44px,28vw,140px)] md:text-[clamp(60px,15.3vw,220px)]"
           >
             <span>P</span>
@@ -26,30 +29,25 @@ export default function Home() {
               className="relative flex-shrink-0 inline-flex self-start"
               style={{ width: "0.72em", height: "0.8em" }}
             >
-              {/* Yellow triangle */}
-              <span
-                aria-hidden="true"
+              {/* Yellow triangle → About (melts into the About page's leaf shape, staying yellow, on hover) */}
+              <LiquidShape
+                kind="triangle"
+                color="#f5c518"
+                href="/about"
+                label="About"
+                hintDelay={1200}
                 className="absolute"
-                style={{
-                  width: "0.6em",
-                  height: "0.42em",
-                  bottom: "0",
-                  left: "0.06em",
-                  clipPath: "polygon(0% 0%, 0% 100%, 100% 100%)",
-                  backgroundColor: "#f5c518",
-                }}
+                style={{ width: "0.6em", height: "0.42em", bottom: "0", left: "0.06em" }}
               />
-              {/* Red circle */}
-              <span
-                aria-hidden="true"
-                className="absolute rounded-full"
-                style={{
-                  top: "0.06em",
-                  left: "0.03em",
-                  width: "0.6em",
-                  height: "0.6em",
-                  backgroundColor: "#e04040",
-                }}
+              {/* Red circle → Works */}
+              <LiquidShape
+                kind="circle"
+                color="#e04040"
+                href="/works"
+                label="Works"
+                labelPosition="above"
+                className="absolute"
+                style={{ top: "0.06em", left: "0.03em", width: "0.6em", height: "0.6em" }}
               />
             </span>
 
@@ -60,15 +58,15 @@ export default function Home() {
 
             <span>F</span>
 
-            {/* O — green circle */}
-            <span
-              aria-hidden="true"
-              className="rounded-full flex-shrink-0 self-center"
-              style={{
-                width: "0.67em",
-                height: "0.67em",
-                backgroundColor: "#4dba72",
-              }}
+            {/* O — green circle → Contact */}
+            <LiquidShape
+              kind="circle"
+              color="#4dba72"
+              href="/contact"
+              label="Contact"
+              hintDelay={2400}
+              className="relative flex-shrink-0 self-center"
+              style={{ width: "0.67em", height: "0.67em" }}
             />
 
             <span>L</span>
@@ -79,7 +77,7 @@ export default function Home() {
 
         {/* ── Bio ── */}
         <p className="font-sans font-medium text-[clamp(11px,3vw,18px)] leading-[1.7] md:leading-[36px] max-w-[963px] text-ink mb-[40px] uppercase">
-          Hello, I’m Orisakite Victoria—a visual designer who brings ideas to life through branding, UI/UX, editorial,
+          Hello, I’m Victoria Morgan—a visual designer who brings ideas to life through branding, UI/UX, editorial,
           and interactive design. I create bold, cohesive experiences and use front-end development to turn them into
           functional digital products.
         </p>

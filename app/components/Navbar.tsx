@@ -6,9 +6,9 @@ import { useCallback, useEffect, useState } from "react";
 import ThinAsterisk from "@/app/components/ThinAsterisk";
 
 const NAV_LINKS = [
-  { label: "WORKS", href: "/works", hoverBg: "#e8d77e" },
-  { label: "ABOUT", href: "/about", hoverBg: "#8bbf7a" },
-  { label: "CONTACT", href: "/contact", hoverBg: "#e07575" },
+  { label: "WORKS", href: "/works", hoverBg: "#e07575" }, // red, like the circle that links to Works
+  { label: "ABOUT", href: "/about", hoverBg: "#e8d77e" }, // yellow, like the triangle
+  { label: "CONTACT", href: "/contact", hoverBg: "#8bbf7a" }, // green, like the green circle
 ] as const;
 
 // The mobile overlay carries a couple of extra stops the desktop bar doesn't need room for.
@@ -70,7 +70,7 @@ export default function Navbar() {
         >
           <ThinAsterisk size={18} className="shrink-0 text-ink group-hover:text-cream transition-colors" />
           <span className="font-sans font-semibold text-[14px] md:text-[15px] text-ink leading-[22px] whitespace-nowrap group-hover:text-cream transition-colors">
-            ORIS MORGAN
+            VICTORIA MORGAN
             {/* desktop-only reveal — inert on touch since there's no hover to trigger it; the mobile overlay lists HOME explicitly instead */}
             <span
               aria-hidden="true"
@@ -106,7 +106,7 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Mobile toggle — text, not an icon; "ORIS MORGAN | MENU" per spec */}
+        {/* Mobile toggle — text, not an icon; "VICTORIA MORGAN | MENU" per spec */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}

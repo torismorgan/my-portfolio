@@ -16,7 +16,7 @@ export default function Footer() {
             letterSpacing: "-3.68px",
           }}
         >
-          Oris Morgan
+          Victoria Morgan
         </Link>
       </div>
 
@@ -74,7 +74,7 @@ export default function Footer() {
 
       {/* Credit line — shows on every page that uses the shared footer */}
       <p className="px-5 py-5 md:py-6 text-center font-sans font-medium text-[13px] md:text-[14px] text-dark leading-[22px] uppercase tracking-[0.06em]">
-        Designed by Oris Morgan
+        Designed by Victoria Morgan
       </p>
     </footer>
   );
