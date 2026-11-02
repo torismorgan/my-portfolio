@@ -113,6 +113,14 @@ export default function Home() {
             >
               GITHUB
             </a>
+            <a
+              href="https://www.behance.net/victoriamorgan10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display font-bold text-[12px] md:text-[16px] text-black underline decoration-solid underline-offset-2 hover:opacity-70 transition-opacity"
+            >
+              BEHANCE
+            </a>
           </div>
         </div>
       </section>

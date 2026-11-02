@@ -62,6 +62,14 @@ export default function Footer() {
             >
               GITHUB
             </a>
+            <a
+              href="https://www.behance.net/victoriamorgan10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center min-h-[44px] md:min-h-0 px-3 md:px-0 hover:underline"
+            >
+              BEHANCE
+            </a>
           </div>
         </div>
 
